@@ -6,10 +6,10 @@ Extraction scripts: `~/run_out/EDU01/catalog_v2_raw/_scripts/` (shared helper `c
 
 ## Principles
 
-1. **No imputation.** Every row was parsed from a saved source document. When a source gives no description, credits or code, the field is left empty. We did not translate, paraphrase or infer anything.
+1. **No imputation.** Every row was parsed from a saved source document. When a source gives no description, credits or code, the field is left empty. Nothing was translated, paraphrased or inferred.
    - As a check, every title in every CSV was matched against the saved raw files for that programme. All titles were found; the only mismatches were Unicode-escape differences in the TU Delft JSON.
 2. **Unreachable is not zero.** Any programme or part of a programme that could not be obtained is marked `partial` in `coverage_audit.csv`, with the reason. Analyses should treat missing parts as missing data, not as absence of a topic.
-3. **Level comes from the institution's own convention.** Each row's `level_rule` records the rule that was applied. In order of preference, we used:
+3. **Level comes from the institution's own convention.** Each row's `level_rule` records the rule that was applied. In order of preference, the following were used:
    - a per-course field (MIT U/G tag, Stanford `academicCareer`, Imperial FHEQ level, KTH cycle, METU "Level of Study");
    - membership in a UG or graduate catalogue, study plan or section (TAMU, Georgia Tech, UMD, KAIST, HKUST, ETH, EPFL, TU Delft, NTU, Boğaziçi);
    - the institution's published numbering rule (UIUC, UCSD, Purdue, UT Austin, Cornell, NUS, CMU).
@@ -158,7 +158,7 @@ CSV columns: `university, code, title, description, level, level_rule, credits, 
 
 **METU (`metu`)**
 - Course list: the department's "All Courses" page (eee.metu.edu.tr).
-- Descriptions and the official "Level of Study" field: 2026 Internet Archive captures of the official catalogue, because catalog.metu.edu.tr timed out from our host.
+- Descriptions and the official "Level of Study" field: 2026 Internet Archive captures of the official catalogue, because catalog.metu.edu.tr timed out from the retrieval host.
 - 36 rows are levelled by numbering; 34 rows have no description.
 
 **Boğaziçi (`bogazici`)**
