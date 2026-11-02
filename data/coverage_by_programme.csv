@@ -1,0 +1,27 @@
+slug,university,region,catalogue_status,n_ug_courses,ai_hardware_status,neuromorphic_status,iot_security_status,quantum_hw_status,ai_hardware_ug_dedicated_codes,neuromorphic_ug_dedicated_codes,iot_security_ug_dedicated_codes,quantum_hw_ug_dedicated_codes
+bilkent,Bilkent,Türkiye,complete,44,none,none,none,none,,,,
+bogazici,Boğaziçi,Türkiye,complete,61,none,none,none,none,,,,
+cambridge,Cambridge,Europe,partial,57,none,none,none,none,,,,
+cmu,CMU,USA,complete,82,none,graduate only,graduate only,graduate only,,,,
+cornell,Cornell,USA,complete,60,graduate only,graduate only,none,none,,,,
+epfl,EPFL,Europe,complete,58,none,none,none,graduate only,,,,
+eth,ETH Zürich,Europe,complete,154,UG partial,graduate only,UG partial,UG dedicated,,,,227-0085-05L
+gatech,Georgia Tech,USA,complete,140,none,graduate only,UG dedicated,none,,,ECE 3170 ECE 4156,
+hkust,HKUST,Asia,complete,67,UG dedicated,none,none,UG partial,ELEC 4350,,,
+imperial,Imperial College,Europe,complete,56,none,none,none,graduate only,,,,
+kaist,KAIST,Asia,complete,81,UG dedicated,graduate only,none,UG dedicated,EE.49904(002),,,EE.40080 EE.49904(065) EE.49904(072)
+kth,KTH,Europe,complete,44,graduate only,none,UG dedicated,graduate only,,,IL1333,
+metu,ODTÜ (METU),Türkiye,complete,78,none,none,none,none,,,,
+mit,MIT,USA,complete,225,UG dedicated,none,UG dedicated,UG dedicated,6.5931,,6.5951,6.2400 6.2410
+ntu,NTU Singapore,Asia,partial,84,UG dedicated,UG partial,graduate only,graduate only,EE6316,,,
+nus,NUS,Asia,complete,151,none,none,none,UG dedicated,,,,EE4205 EE4206
+oxford,Oxford,Europe,complete,32,none,none,none,graduate only,,,,
+purdue,Purdue,USA,complete,176,graduate only,none,none,UG dedicated,,,,ECE 50435 ECE 50650 ECE 50651 ECE 50652
+stanford,Stanford,USA,complete,54,UG dedicated,graduate only,none,graduate only,EE 244,,,
+tamu,Texas A&M,USA,complete,79,UG partial,graduate only,UG dedicated,graduate only,,,ECEN 426,
+tsinghua,Tsinghua,Asia,partial,104,none,none,none,UG dedicated,,,,40260012
+tudelft,TU Delft,Europe,complete,31,none,none,none,graduate only,,,,
+ucsd,UCSD,USA,complete,89,graduate only,none,graduate only,none,,,,
+uiuc,UIUC,USA,complete,126,UG dedicated,none,none,UG dedicated,ECE 423,,,ECE 305 ECE 404 ECE 405
+umd,UMD College Park,USA,complete,65,none,none,none,UG dedicated,,,,ENEE435 ENEE492 ENEE493
+utaustin,UT Austin,USA,complete,114,graduate only,none,none,graduate only,,,,

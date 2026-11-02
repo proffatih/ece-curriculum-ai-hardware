@@ -1,0 +1,5 @@
+wave,n_prog,k_ug_dedicated,coverage_pct,ci_lo,ci_hi,k_ug_ded_or_partial,k_grad_only,k_none,n_ded_ug_courses,n_ded_g_courses,teaching_share_pct,research_share_core_2023_25_pct,RR,RR_lo,RR_hi,coverage_pct_all26,coverage_pct_oxford_partC_UG
+ai_hardware,23,5,21.7,9.7,41.9,7,5,11,5,14,0.253,3.316,13.1,6.7,61.6,23.1,21.7
+neuromorphic,23,0,0.0,0.0,14.3,0,7,16,0,11,0.0,2.403,undefined,undefined,undefined,0.0,0.0
+iot_security,23,4,17.4,7.0,37.1,5,2,16,5,7,0.235,0.621,2.6,1.3,32.1,15.4,17.4
+quantum_hw,23,7,30.4,15.6,50.9,8,9,6,18,24,0.689,0.951,1.4,0.8,4.2,30.8,34.8

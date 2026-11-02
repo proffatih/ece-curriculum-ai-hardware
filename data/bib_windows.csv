@@ -1,0 +1,13 @@
+pool,wave,n_2015_17,n_2023_25,share_2015_17_pct,share_2023_25_pct,share_ratio
+all,ai_hardware,53,626,0.423,1.013,2.4
+all,neuromorphic,94,482,0.75,0.78,1.04
+all,iot_security,37,216,0.295,0.349,1.18
+all,quantum_hw,6,265,0.048,0.429,8.96
+core,ai_hardware,52,523,0.597,3.316,5.56
+core,neuromorphic,92,379,1.056,2.403,2.28
+core,iot_security,32,98,0.367,0.621,1.69
+core,quantum_hw,4,150,0.046,0.951,20.72
+coreQE,ai_hardware,52,522,0.597,3.352,5.62
+coreQE,neuromorphic,92,379,1.056,2.434,2.31
+coreQE,iot_security,32,98,0.367,0.629,1.71
+coreQE,quantum_hw,4,54,0.046,0.347,7.56

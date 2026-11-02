@@ -1,0 +1,42 @@
+wave,topic,n_titles,n_wave_titles_2021_25,pct
+ai_hardware,RRAM/memristor crossbars,225,927,24.3
+ai_hardware,CNN/DNN inference,189,927,20.4
+ai_hardware,energy efficiency,157,927,16.9
+ai_hardware,quantization / low precision,142,927,15.3
+ai_hardware,sparsity / pruning,86,927,9.3
+ai_hardware,SRAM compute-in-memory macros,80,927,8.6
+ai_hardware,edge / TinyML,73,927,7.9
+ai_hardware,on-device training / learning,59,927,6.4
+ai_hardware,ADC / analog readout,58,927,6.3
+ai_hardware,FPGA accelerators,45,927,4.9
+ai_hardware,transformers / attention,43,927,4.6
+ai_hardware,dataflow / systolic,32,927,3.5
+iot_security,"PUF design (SRAM, ring-oscillator, arbiter)",201,387,51.9
+iot_security,power / EM side-channel analysis,109,387,28.2
+iot_security,authentication protocols (IoT),59,387,15.2
+iot_security,"countermeasures (masking, shuffling)",40,387,10.3
+iot_security,logic locking / obfuscation,38,387,9.8
+iot_security,ML modelling attacks on PUFs,35,387,9.0
+iot_security,hardware Trojans,35,387,9.0
+iot_security,"emerging-device PUFs (RRAM, MRAM)",18,387,4.7
+iot_security,FPGA implementation,13,387,3.4
+iot_security,TRNG / key generation,12,387,3.1
+neuromorphic,"synaptic devices (transistors, memristors)",199,717,27.8
+neuromorphic,neuromorphic processors / chips,108,717,15.1
+neuromorphic,spiking neuron circuits (LIF),98,717,13.7
+neuromorphic,SNN training algorithms,93,717,13.0
+neuromorphic,energy efficiency,79,717,11.0
+neuromorphic,event-based vision,56,717,7.8
+neuromorphic,optoelectronic / photonic,55,717,7.7
+neuromorphic,STDP / plasticity,53,717,7.4
+neuromorphic,FPGA implementation,16,717,2.2
+neuromorphic,reservoir computing,7,717,1.0
+quantum_hw,"quantum algorithms (VQE, QAOA, annealing)",98,354,27.7
+quantum_hw,quantum machine learning,73,354,20.6
+quantum_hw,quantum circuits / compilation / mapping,63,354,17.8
+quantum_hw,"applications (optimisation, finance, comms)",55,354,15.5
+quantum_hw,cryo-CMOS control and readout electronics,54,354,15.3
+quantum_hw,spin and superconducting qubits (devices),35,354,9.9
+quantum_hw,noise / NISQ benchmarking,27,354,7.6
+quantum_hw,error correction / mitigation,23,354,6.5
+quantum_hw,software stacks / programming,10,354,2.8

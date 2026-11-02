@@ -1,0 +1,109 @@
+{
+  "_meta": {
+    "purpose": "EDU01 R1 — a-priori wave definitions for exact-phrase title classification (step 18).",
+    "matching": "Titles are cleaned (LaTeX/MathML removed), lower-cased, and hyphens replaced by spaces before case-insensitive regular-expression matching; an article belongs to a wave if any include pattern matches and no exclude pattern matches. An article may belong to more than one wave.",
+    "fixed_before_counting": "2026-11-02",
+    "revision_log": "Quantum wave broadened once (2026-11-02), before validation coding, after inspection of T-QE titles showed that the hardware-only phrase set excluded quantum-computing engineering articles that the course-side keywords ('quantum comput', 'quantum information') would count; the research and teaching operationalisations were aligned. Quantum communication/QKD/post-quantum cryptography excluded on both sides. | Round-1 precision inspection (seed 20261102) found systematic false positives: dynamical-systems papers on stability/synchronization of 'memristive neural networks' (AI hardware), RRAM-for-TCAM and in-memory ECC codecs, rapid single-flux-quantum (classical superconducting) logic, and editorial items (calls for papers, guest editorials, covers). Exclusion rules and a non-research filter (applied to the pool denominator as well) were added; precision was then re-estimated on a fresh random sample (seed 20261103). | Round-2 held-out validation (seed 20261103): precision 44/50, 49/50, 50/50, 48/50 but near-miss recall low (missed 9/30, 13/30, 1/30, 7/30 of near-miss titles; e.g., 'LSTM accelerator', 'spiking networks', 'synaptic TFT', hyphenated 'quantum-annealing-aided'). Patterns extended (hyphen normalisation, accelerator x ML-term co-occurrence, spiking/synapse/event-camera terms, stabilizer/surface codes). Final rules frozen and validated on a third fresh sample (seed 20261104). | Round-3 (final, seed 20261104): precision AI 43/50, NE 50/50, SE 48/50, QU 45/50; near-miss misses 7/30, 0/30, 1/30, 6/30. Rules frozen. After coding, the non-research filter was extended to annual index items ('2021 Index IEEE ...'), which the round-3 sample had exposed; the coded sample was not regenerated (the index item remains coded 0 in the precision estimate).",
+    "non_research_filter": "^(front cover|back cover|table of contents|toc|.*call for papers.*|guest editorial.*|editorial.*|.*information for authors.*|ieee .* (information|society)$|.*reviewers.*|correction(s)? to .*|erratum.*|retraction.*|.*special issue.*|introducing ieee .*|.*index$|\\d{4} index .*|.*masthead.*)$"
+  },
+  "waves": {
+    "ai_hardware": {
+      "label": "AI hardware (accelerators and in-memory computing for machine learning)",
+      "include": [
+        "\\b(in|compute|computing|processing)[- ]in[- ]memory\\b",
+        "\\bin[- ]memory comput",
+        "\\b(neural[- ]network|dnn|cnn|convolutional|deep[- ]learning|machine[- ]learning|transformer|ai|llm|inference|training)s? (hardware )?accelerat",
+        "\\baccelerat\\w* (for|of) (deep|convolutional|recurrent|graph|spiking)? ?(neural|dnn|cnn|transformer|deep[- ]learning|machine[- ]learning)",
+        "\\bneural (processing unit|processor|network processor|engine)s?\\b",
+        "\\b(ai|deep[- ]learning|machine[- ]learning|neural[- ]network) (chip|processor|hardware|soc)s?\\b",
+        "\\b(memristor|memristive|rram|reram|pcm|fefet|resistive)[- ]?(based )?(crossbar|array)s?\\b",
+        "\\b(memristor|memristive|rram|reram)\\b.*\\bneural",
+        "\\bneural.*\\b(memristor|memristive|rram|reram)\\b",
+        "\\banalog (in[- ]memory|ai|neural|matrix[- ]vector)",
+        "\\bsystolic array",
+        "^(?=.*\\baccelerat)(?=.*\\b(neural|nn|dnn|cnn|rnn|lstm|gnn|transformers?|attention|deep learning|machine learning|classifiers?|inference|ai|llms?|learning)\\b)",
+        "\\bpim\\b",
+        "\\bin memory\\b.*\\b(neural|convolution\\w*|hyperdimensional|weights?|inference|learning|mac|matrix)",
+        "\\b(memristors?|memristive|rram|reram|pcm|phase change memory|memtransistors?|crossbars?)\\b.*\\b(reservoir|neural|attention|transformers?|learning|classif\\w*|inference|accelerat\\w*)",
+        "\\b(neural|reservoir|attention|transformers?|learning|inference)\\b.*\\b(memristors?|memristive|rram|reram|pcm|memtransistors?|crossbars?)\\b"
+      ],
+      "exclude": [
+        "\\b(synchroni[sz]ation|stabili[sz]ation|stability|dissipativity|passivity|state estimation|time[- ]varying delays?|chaotic)\\b",
+        "\\btcam\\b",
+        "\\berror correction codec",
+        "\\b(blockchain|homomorphic|encrypt\\w*|cryptograph\\w*|pqc|post quantum|aes|hash)\\b",
+        "^(?=.*\\baccelerat)(?!.*\\b(hardware|accelerators?|fpga|asic|chip|processor|circuit|architecture|soc|engine|macro|array|gpu)\\b)"
+      ]
+    },
+    "neuromorphic": {
+      "label": "Neuromorphic computing (spiking neural networks, brain-inspired hardware and synaptic devices)",
+      "include": [
+        "\\bneuromorphic",
+        "\\bspiking neural (network|net)s?\\b",
+        "\\bspiking neurons?\\b",
+        "\\b(artificial|electronic|optoelectronic|memristive|ferroelectric|organic|photonic) synap",
+        "\\bsynaptic (device|transistor|plasticity|element|behaviou?r|weight)s?",
+        "\\bbrain[- ]inspired (comput|hardware|chip|processor|architecture)",
+        "\\bsilicon neurons?\\b",
+        "\\b(stdp|spike[- ]timing[- ]dependent)",
+        "\\bspiking\\b",
+        "\\bspike (timing|based|driven|latency|metric|coding|encoding|trains?)\\b",
+        "\\bsynap(se|ses|tic)\\b",
+        "\\bartificial (sensory )?neurons?\\b",
+        "\\bevent cameras?\\b",
+        "\\bdynamic vision sensors?\\b"
+      ],
+      "exclude": [
+        "\\b(synchroni[sz]ation|stabili[sz]ation|dissipativity|passivity)\\b",
+        "\\bspike sorting\\b"
+      ]
+    },
+    "iot_security": {
+      "label": "IoT / hardware security (PUFs, side channels, hardware Trojans, roots of trust)",
+      "include": [
+        "\\bphysical(ly)? unclonable",
+        "\\bpufs?\\b",
+        "\\bhardware trojans?\\b",
+        "\\bside[- ]channel",
+        "\\bfault[- ]injection attack",
+        "\\bhardware (security|root of trust|obfuscation|attack)",
+        "\\broot of trust",
+        "\\btrusted execution environment",
+        "\\b(logic|circuit|ic) (locking|obfuscation|camouflag)",
+        "\\bpower analysis attack",
+        "\\bmicroarchitectural (attack|leak)"
+      ],
+      "exclude": []
+    },
+    "quantum_hw": {
+      "label": "Quantum computing engineering (qubits, quantum processors and circuits, control electronics, error correction, quantum algorithms and software)",
+      "include": [
+        "\\bqubits?\\b",
+        "\\bquantum comput",
+        "\\bquantum (processor|computer|chip|hardware|gate|circuit|error[- ]correct|error[- ]mitigat|annealer|annealing|processing unit|algorithm|software|compil|program)",
+        "\\bvariational quantum",
+        "\\bquantum (machine|neural|approximate|optimi[sz]ation)",
+        "\\btransmons?\\b",
+        "\\bnisq\\b",
+        "\\bcryo[- ]?cmos\\b",
+        "\\bsuperconducting (quantum|qubit|circuit)",
+        "\\btrapped[- ]ion",
+        "\\bspin qubit",
+        "\\bquantum (federated|annealing|search|cryptanalysis|fourier|engineering)\\b",
+        "\\bstabili[sz]er codes?\\b",
+        "\\bcharge stability diagrams?\\b",
+        "\\bsurface codes?\\b"
+      ],
+      "exclude": [
+        "\\bquantum[- ]inspired",
+        "\\bquantum[- ]behaved",
+        "\\bquantum (dot )?(light[- ]emitting|led|well|cascade|efficiency|yield|key distribution|communication|network|internet|cryptograph|secure direct)",
+        "\\bpost[- ]quantum",
+        "\\bsingle[- ]flux[- ]quantum|\\brsfq\\b",
+        "\\bquantum dot cellular automata\\b",
+        "\\bqca\\b",
+        "\\b(secret sharing|image encryption|teleport\\w*|entanglement distribution|fisher information)\\b"
+      ]
+    }
+  }
+}

@@ -1,0 +1,954 @@
+\documentclass[10pt]{article}
+\usepackage[margin=1.8cm,landscape]{geometry}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\usepackage{lmodern}
+\usepackage{booktabs,longtable,array,url}
+\DeclareUnicodeCharacter{221E}{$\infty$}\DeclareUnicodeCharacter{2093}{$_x$}\DeclareUnicodeCharacter{03BC}{$\mu$}
+\usepackage[hidelinks]{hyperref}
+\renewcommand{\thetable}{S\arabic{table}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\setlength{\LTcapwidth}{\linewidth}
+\begin{document}
+\begin{center}{\Large Supplementary Material}\\[4pt]
+Mapping AI-Hardware Topics in the Electrical and Computer Engineering Curriculum:
+A Bibliometric and Course-Catalogue Analysis and a Data-Informed Modular Track\\[2pt]
+Fatih G\"ul\end{center}
+\footnotesize
+\begin{longtable}{@{}llll@{}}
+\caption{Journal pool (research articles after removal of non-research items). Core pool = all except \emph{IEEE Access} and \emph{IoT Journal}.}\label{tab:S1}\\
+\toprule
+Abbr. & Journal & ISSN & Articles 2015--25 \\
+\midrule
+\endfirsthead
+\toprule
+Abbr. & Journal & ISSN & Articles 2015--25 \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+TCAS-I & IEEE Trans. Circuits and Systems I: Regular Papers & 1549-8328 & 4\,730 \\
+TCAS-II & IEEE Trans. Circuits and Systems II: Express Briefs & 1549-7747 & 6\,457 \\
+TVLSI & IEEE Trans. Very Large Scale Integration (VLSI) Systems & 1063-8210 & 3\,120 \\
+TED & IEEE Trans. Electron Devices & 0018-9383 & 10\,316 \\
+EDL & IEEE Electron Device Letters & 0741-3106 & 5\,767 \\
+JSSC & IEEE Journal of Solid-State Circuits & 0018-9200 & 3\,572 \\
+IoT-J & IEEE Internet of Things Journal & 2327-4662 & 14\,734 \\
+T-NANO & IEEE Trans. Nanotechnology & 1536-125X & 1\,427 \\
+TNNLS & IEEE Trans. Neural Networks and Learning Systems & 2162-237X & 7\,016 \\
+T-EDUC & IEEE Trans. Education & 0018-9359 & 615 \\
+ACCESS & IEEE Access & 2169-3536 & 102\,635 \\
+JETCAS & IEEE J. Emerging and Selected Topics in Circuits and Systems & 2156-3357 & 737 \\
+T-QE & IEEE Trans. Quantum Engineering & 2689-1808 & 338 \\
+\end{longtable}
+
+\noindent\textbf{Matching.} Titles are cleaned (LaTeX/MathML removed), lower-cased, and hyphens replaced by spaces before case-insensitive regular-expression matching; an article belongs to a wave if any include pattern matches and no exclude pattern matches. An article may belong to more than one wave.
+
+\noindent\textbf{Revision log.} Quantum wave broadened once (2026-11-02), before validation coding, after inspection of T-QE titles showed that the hardware-only phrase set excluded quantum-computing engineering articles that the course-side keywords ('quantum comput', 'quantum information') would count; the research and teaching operationalisations were aligned. Quantum communication/QKD/post-quantum cryptography excluded on both sides. | Round-1 precision inspection (seed 20261102) found systematic false positives: dynamical-systems papers on stability/synchronization of 'memristive neural networks' (AI hardware), RRAM-for-TCAM and in-memory ECC codecs, rapid single-flux-quantum (classical superconducting) logic, and editorial items (calls for papers, guest editorials, covers). Exclusion rules and a non-research filter (applied to the pool denominator as well) were added; precision was then re-estimated on a fresh random sample (seed 20261103). | Round-2 held-out validation (seed 20261103): precision 44/50, 49/50, 50/50, 48/50 but near-miss recall low (missed 9/30, 13/30, 1/30, 7/30 of near-miss titles; e.g., 'LSTM accelerator', 'spiking networks', 'synaptic TFT', hyphenated 'quantum-annealing-aided'). Patterns extended (hyphen normalisation, accelerator x ML-term co-occurrence, spiking/synapse/event-camera terms, stabilizer/surface codes). Final rules frozen and validated on a third fresh sample (seed 20261104). | Round-3 (final, seed 20261104): precision AI 43/50, NE 50/50, SE 48/50, QU 45/50; near-miss misses 7/30, 0/30, 1/30, 6/30. Rules frozen. After coding, the non-research filter was extended to annual index items ('2021 Index IEEE ...'), which the round-3 sample had exposed; the coded sample was not regenerated (the index item remains coded 0 in the precision estimate).
+
+
+\begin{longtable}{@{}lL{1.6cm}L{11.5cm}@{}}
+\caption{Wave classification rules (final, frozen before the round-3 validation).}\label{tab:S2}\\
+\toprule
+Wave & Type & Regular expression \\
+\midrule
+\endfirsthead
+\toprule
+Wave & Type & Regular expression \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+AI hardware & include & \texttt{\textbackslash{}b\allowbreak(in\allowbreak|compute\allowbreak|computing\allowbreak|processing)[- ]in[- ]memory\textbackslash{}b} \\
+AI hardware & include & \texttt{\textbackslash{}bin[- ]memory comput} \\
+AI hardware & include & \texttt{\textbackslash{}b\allowbreak(neural[- ]network\allowbreak|dnn\allowbreak|cnn\allowbreak|convolutional\allowbreak|deep[- ]learning\allowbreak|machine[- ]learning\allowbreak|transformer\allowbreak|ai\allowbreak|llm\allowbreak|inference\allowbreak|training)s? \allowbreak(hardware )?accelerat} \\
+AI hardware & include & \texttt{\textbackslash{}baccelerat\textbackslash{}w* \allowbreak(for\allowbreak|of) \allowbreak(deep\allowbreak|convolutional\allowbreak|recurrent\allowbreak|graph\allowbreak|spiking)? ?\allowbreak(neural\allowbreak|dnn\allowbreak|cnn\allowbreak|transformer\allowbreak|deep[- ]learning\allowbreak|machine[- ]learning)} \\
+AI hardware & include & \texttt{\textbackslash{}bneural \allowbreak(processing unit\allowbreak|processor\allowbreak|network processor\allowbreak|engine)s?\textbackslash{}b} \\
+AI hardware & include & \texttt{\textbackslash{}b\allowbreak(ai\allowbreak|deep[- ]learning\allowbreak|machine[- ]learning\allowbreak|neural[- ]network) \allowbreak(chip\allowbreak|processor\allowbreak|hardware\allowbreak|soc)s?\textbackslash{}b} \\
+AI hardware & include & \texttt{\textbackslash{}b\allowbreak(memristor\allowbreak|memristive\allowbreak|rram\allowbreak|reram\allowbreak|pcm\allowbreak|fefet\allowbreak|resistive)[- ]?\allowbreak(based )?\allowbreak(crossbar\allowbreak|array)s?\textbackslash{}b} \\
+AI hardware & include & \texttt{\textbackslash{}b\allowbreak(memristor\allowbreak|memristive\allowbreak|rram\allowbreak|reram)\textbackslash{}b.*\textbackslash{}bneural} \\
+AI hardware & include & \texttt{\textbackslash{}bneural.*\textbackslash{}b\allowbreak(memristor\allowbreak|memristive\allowbreak|rram\allowbreak|reram)\textbackslash{}b} \\
+AI hardware & include & \texttt{\textbackslash{}banalog \allowbreak(in[- ]memory\allowbreak|ai\allowbreak|neural\allowbreak|matrix[- ]vector)} \\
+AI hardware & include & \texttt{\textbackslash{}bsystolic array} \\
+AI hardware & include & \texttt{\textasciicircum{}\allowbreak(?=.*\textbackslash{}baccelerat)\allowbreak(?=.*\textbackslash{}b\allowbreak(neural\allowbreak|nn\allowbreak|dnn\allowbreak|cnn\allowbreak|rnn\allowbreak|lstm\allowbreak|gnn\allowbreak|transformers?\allowbreak|attention\allowbreak|deep learning\allowbreak|machine learning\allowbreak|classifiers?\allowbreak|inference\allowbreak|ai\allowbreak|llms?\allowbreak|learning)\textbackslash{}b)} \\
+AI hardware & include & \texttt{\textbackslash{}bpim\textbackslash{}b} \\
+AI hardware & include & \texttt{\textbackslash{}bin memory\textbackslash{}b.*\textbackslash{}b\allowbreak(neural\allowbreak|convolution\textbackslash{}w*\allowbreak|hyperdimensional\allowbreak|weights?\allowbreak|inference\allowbreak|learning\allowbreak|mac\allowbreak|matrix)} \\
+AI hardware & include & \texttt{\textbackslash{}b\allowbreak(memristors?\allowbreak|memristive\allowbreak|rram\allowbreak|reram\allowbreak|pcm\allowbreak|phase change memory\allowbreak|memtransistors?\allowbreak|crossbars?)\textbackslash{}b.*\textbackslash{}b\allowbreak(reservoir\allowbreak|neural\allowbreak|attention\allowbreak|transformers?\allowbreak|learning\allowbreak|classif\textbackslash{}w*\allowbreak|inference\allowbreak|accelerat\textbackslash{}w*)} \\
+AI hardware & include & \texttt{\textbackslash{}b\allowbreak(neural\allowbreak|reservoir\allowbreak|attention\allowbreak|transformers?\allowbreak|learning\allowbreak|inference)\textbackslash{}b.*\textbackslash{}b\allowbreak(memristors?\allowbreak|memristive\allowbreak|rram\allowbreak|reram\allowbreak|pcm\allowbreak|memtransistors?\allowbreak|crossbars?)\textbackslash{}b} \\
+AI hardware & exclude & \texttt{\textbackslash{}b\allowbreak(synchroni[sz]ation\allowbreak|stabili[sz]ation\allowbreak|stability\allowbreak|dissipativity\allowbreak|passivity\allowbreak|state estimation\allowbreak|time[- ]varying delays?\allowbreak|chaotic)\textbackslash{}b} \\
+AI hardware & exclude & \texttt{\textbackslash{}btcam\textbackslash{}b} \\
+AI hardware & exclude & \texttt{\textbackslash{}berror correction codec} \\
+AI hardware & exclude & \texttt{\textbackslash{}b\allowbreak(blockchain\allowbreak|homomorphic\allowbreak|encrypt\textbackslash{}w*\allowbreak|cryptograph\textbackslash{}w*\allowbreak|pqc\allowbreak|post quantum\allowbreak|aes\allowbreak|hash)\textbackslash{}b} \\
+AI hardware & exclude & \texttt{\textasciicircum{}\allowbreak(?=.*\textbackslash{}baccelerat)\allowbreak(?!.*\textbackslash{}b\allowbreak(hardware\allowbreak|accelerators?\allowbreak|fpga\allowbreak|asic\allowbreak|chip\allowbreak|processor\allowbreak|circuit\allowbreak|architecture\allowbreak|soc\allowbreak|engine\allowbreak|macro\allowbreak|array\allowbreak|gpu)\textbackslash{}b)} \\
+Neuromorphic & include & \texttt{\textbackslash{}bneuromorphic} \\
+Neuromorphic & include & \texttt{\textbackslash{}bspiking neural \allowbreak(network\allowbreak|net)s?\textbackslash{}b} \\
+Neuromorphic & include & \texttt{\textbackslash{}bspiking neurons?\textbackslash{}b} \\
+Neuromorphic & include & \texttt{\textbackslash{}b\allowbreak(artificial\allowbreak|electronic\allowbreak|optoelectronic\allowbreak|memristive\allowbreak|ferroelectric\allowbreak|organic\allowbreak|photonic) synap} \\
+Neuromorphic & include & \texttt{\textbackslash{}bsynaptic \allowbreak(device\allowbreak|transistor\allowbreak|plasticity\allowbreak|element\allowbreak|behaviou?r\allowbreak|weight)s?} \\
+Neuromorphic & include & \texttt{\textbackslash{}bbrain[- ]inspired \allowbreak(comput\allowbreak|hardware\allowbreak|chip\allowbreak|processor\allowbreak|architecture)} \\
+Neuromorphic & include & \texttt{\textbackslash{}bsilicon neurons?\textbackslash{}b} \\
+Neuromorphic & include & \texttt{\textbackslash{}b\allowbreak(stdp\allowbreak|spike[- ]timing[- ]dependent)} \\
+Neuromorphic & include & \texttt{\textbackslash{}bspiking\textbackslash{}b} \\
+Neuromorphic & include & \texttt{\textbackslash{}bspike \allowbreak(timing\allowbreak|based\allowbreak|driven\allowbreak|latency\allowbreak|metric\allowbreak|coding\allowbreak|encoding\allowbreak|trains?)\textbackslash{}b} \\
+Neuromorphic & include & \texttt{\textbackslash{}bsynap\allowbreak(se\allowbreak|ses\allowbreak|tic)\textbackslash{}b} \\
+Neuromorphic & include & \texttt{\textbackslash{}bartificial \allowbreak(sensory )?neurons?\textbackslash{}b} \\
+Neuromorphic & include & \texttt{\textbackslash{}bevent cameras?\textbackslash{}b} \\
+Neuromorphic & include & \texttt{\textbackslash{}bdynamic vision sensors?\textbackslash{}b} \\
+Neuromorphic & exclude & \texttt{\textbackslash{}b\allowbreak(synchroni[sz]ation\allowbreak|stabili[sz]ation\allowbreak|dissipativity\allowbreak|passivity)\textbackslash{}b} \\
+Neuromorphic & exclude & \texttt{\textbackslash{}bspike sorting\textbackslash{}b} \\
+IoT/HW security & include & \texttt{\textbackslash{}bphysical\allowbreak(ly)? unclonable} \\
+IoT/HW security & include & \texttt{\textbackslash{}bpufs?\textbackslash{}b} \\
+IoT/HW security & include & \texttt{\textbackslash{}bhardware trojans?\textbackslash{}b} \\
+IoT/HW security & include & \texttt{\textbackslash{}bside[- ]channel} \\
+IoT/HW security & include & \texttt{\textbackslash{}bfault[- ]injection attack} \\
+IoT/HW security & include & \texttt{\textbackslash{}bhardware \allowbreak(security\allowbreak|root of trust\allowbreak|obfuscation\allowbreak|attack)} \\
+IoT/HW security & include & \texttt{\textbackslash{}broot of trust} \\
+IoT/HW security & include & \texttt{\textbackslash{}btrusted execution environment} \\
+IoT/HW security & include & \texttt{\textbackslash{}b\allowbreak(logic\allowbreak|circuit\allowbreak|ic) \allowbreak(locking\allowbreak|obfuscation\allowbreak|camouflag)} \\
+IoT/HW security & include & \texttt{\textbackslash{}bpower analysis attack} \\
+IoT/HW security & include & \texttt{\textbackslash{}bmicroarchitectural \allowbreak(attack\allowbreak|leak)} \\
+Quantum comp. eng. & include & \texttt{\textbackslash{}bqubits?\textbackslash{}b} \\
+Quantum comp. eng. & include & \texttt{\textbackslash{}bquantum comput} \\
+Quantum comp. eng. & include & \texttt{\textbackslash{}bquantum \allowbreak(processor\allowbreak|computer\allowbreak|chip\allowbreak|hardware\allowbreak|gate\allowbreak|circuit\allowbreak|error[- ]correct\allowbreak|error[- ]mitigat\allowbreak|annealer\allowbreak|annealing\allowbreak|processing unit\allowbreak|algorithm\allowbreak|software\allowbreak|compil\allowbreak|program)} \\
+Quantum comp. eng. & include & \texttt{\textbackslash{}bvariational quantum} \\
+Quantum comp. eng. & include & \texttt{\textbackslash{}bquantum \allowbreak(machine\allowbreak|neural\allowbreak|approximate\allowbreak|optimi[sz]ation)} \\
+Quantum comp. eng. & include & \texttt{\textbackslash{}btransmons?\textbackslash{}b} \\
+Quantum comp. eng. & include & \texttt{\textbackslash{}bnisq\textbackslash{}b} \\
+Quantum comp. eng. & include & \texttt{\textbackslash{}bcryo[- ]?cmos\textbackslash{}b} \\
+Quantum comp. eng. & include & \texttt{\textbackslash{}bsuperconducting \allowbreak(quantum\allowbreak|qubit\allowbreak|circuit)} \\
+Quantum comp. eng. & include & \texttt{\textbackslash{}btrapped[- ]ion} \\
+Quantum comp. eng. & include & \texttt{\textbackslash{}bspin qubit} \\
+Quantum comp. eng. & include & \texttt{\textbackslash{}bquantum \allowbreak(federated\allowbreak|annealing\allowbreak|search\allowbreak|cryptanalysis\allowbreak|fourier\allowbreak|engineering)\textbackslash{}b} \\
+Quantum comp. eng. & include & \texttt{\textbackslash{}bstabili[sz]er codes?\textbackslash{}b} \\
+Quantum comp. eng. & include & \texttt{\textbackslash{}bcharge stability diagrams?\textbackslash{}b} \\
+Quantum comp. eng. & include & \texttt{\textbackslash{}bsurface codes?\textbackslash{}b} \\
+Quantum comp. eng. & exclude & \texttt{\textbackslash{}bquantum[- ]inspired} \\
+Quantum comp. eng. & exclude & \texttt{\textbackslash{}bquantum[- ]behaved} \\
+Quantum comp. eng. & exclude & \texttt{\textbackslash{}bquantum \allowbreak(dot )?\allowbreak(light[- ]emitting\allowbreak|led\allowbreak|well\allowbreak|cascade\allowbreak|efficiency\allowbreak|yield\allowbreak|key distribution\allowbreak|communication\allowbreak|network\allowbreak|internet\allowbreak|cryptograph\allowbreak|secure direct)} \\
+Quantum comp. eng. & exclude & \texttt{\textbackslash{}bpost[- ]quantum} \\
+Quantum comp. eng. & exclude & \texttt{\textbackslash{}bsingle[- ]flux[- ]quantum\allowbreak|\textbackslash{}brsfq\textbackslash{}b} \\
+Quantum comp. eng. & exclude & \texttt{\textbackslash{}bquantum dot cellular automata\textbackslash{}b} \\
+Quantum comp. eng. & exclude & \texttt{\textbackslash{}bqca\textbackslash{}b} \\
+Quantum comp. eng. & exclude & \texttt{\textbackslash{}b\allowbreak(secret sharing\allowbreak|image encryption\allowbreak|teleport\textbackslash{}w*\allowbreak|entanglement distribution\allowbreak|fisher information)\textbackslash{}b} \\
+all & non-research & \texttt{\textasciicircum{}\allowbreak(front cover\allowbreak|back cover\allowbreak|table of contents\allowbreak|toc\allowbreak|.*call for papers.*\allowbreak|guest editorial.*\allowbreak|editorial.*\allowbreak|.*information for authors.*\allowbreak|ieee .* \allowbreak(information\allowbreak|society)\$\allowbreak|.*reviewers.*\allowbreak|correction\allowbreak(s)? to .*\allowbreak|erratum.*\allowbreak|retraction.*\allowbreak|.*special issue.*\allowbreak|introducing ieee .*\allowbreak|.*index\$\allowbreak|\textbackslash{}d\{4\} index .*\allowbreak|.*masthead.*)\$} \\
+\end{longtable}
+
+\begin{longtable}{@{}llll@{}}
+\caption{Validation summary. Rounds 1--2 (seeds 20261102, 20261103) were used to refine the rules; round 3 (seed 20261104) is the held-out estimate. Coded records of all rounds are in the data release.}\label{tab:S3}\\
+\toprule
+Wave & Precision (round 3) & Near-miss should match & Recall bound \\
+\midrule
+\endfirsthead
+\toprule
+Wave & Precision (round 3) & Near-miss should match & Recall bound \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+AI hardware & 43/50 & 7/30 & 76\% \\
+Neuromorphic & 50/50 & 0/30 & 100\% \\
+IoT/HW security & 48/50 & 1/30 & 72\% \\
+Quantum comp. eng. & 45/50 & 6/30 & 62\% \\
+\end{longtable}
+
+\begin{longtable}{@{}llL{8.6cm}lL{4.2cm}@{}}
+\caption{Round-3 coded records (S.: P = precision sample, code 1 = relevant; N = near-miss sample, code 1 = should have matched).}\label{tab:S3b}\\
+\toprule
+S. & Wave & Title & Code & Note \\
+\midrule
+\endfirsthead
+\toprule
+S. & Wave & Title & Code & Note \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+P & AI hardware & An 8b-Precision 6T SRAM Computing-in-Memory Macro Using Time-Domain Incremental Accumulation fo & 1 &  \\
+P & AI hardware & L-ReLU Spiking Neuron Circuit Based on Threshold Switching Memristor for Conversion-Based Spiki & 1 &  \\
+P & AI hardware & VSDCA: A Voltage Sensing Differential Column Architecture Based on 1T2R RRAM Array for Computin & 1 &  \\
+P & AI hardware & NullHop: A Flexible Convolutional Neural Network Accelerator Based on Sparse Representations of & 1 &  \\
+P & AI hardware & Roofline-Model-Based Design Space Exploration for Dataflow Techniques of CNN Accelerators & 1 &  \\
+P & AI hardware & A Fully Row/Column-Parallel MRAM in-Memory Computing Macro With Memory-Resistance Boosting and  & 1 &  \\
+P & AI hardware & TDPRO: Time-Domain-Based Computing-in Memory Engine for Ultra-Low Power ECG Processor & 1 &  \\
+P & AI hardware & Cascaded Architecture for Memristor Crossbar Array Based Larger-Scale Neuromorphic Computing & 1 &  \\
+P & AI hardware & MOL-Based In-Memory Computing of Binary Neural Networks & 1 &  \\
+P & AI hardware & BTI Aging Analysis and Mitigation for Differential Input In-Memory Computing SRAMs & 1 &  \\
+P & AI hardware & Highly Parallel Regular Expression Matching Using a Real Processing-in-Memory System & 0 & PIM for regex matching (non-ML) \\
+P & AI hardware & Variability and Energy Consumption Tradeoffs in Multilevel Programming of RRAM Arrays & 0 & RRAM array programming, no ML \\
+P & AI hardware & ENNA: An Efficient Neural Network Accelerator Design Based on ADC-Free Compute-In-Memory Subarr & 1 &  \\
+P & AI hardware & A Scalable System-on-Chip Acceleration for Deep Neural Networks & 1 &  \\
+P & AI hardware & Insight into Effects of Oxygen Reservoir Layer and Operation Schemes on Data Retention of HfO 2 & 0 & 'oxygen reservoir layer' false hit; RRAM retention \\
+P & AI hardware & DSIP: A Scalable Inference Accelerator for Convolutional Neural Networks & 1 &  \\
+P & AI hardware & An Energy-Efficient Mixed-Bitwidth Systolic Accelerator for NAS-Optimized Deep Neural Networks & 1 &  \\
+P & AI hardware & A Nonvolatile All-Spin Nonbinary Matrix Multiplier: An Efficient Hardware Accelerator for Machi & 1 &  \\
+P & AI hardware & A Highly Parallel and Energy Efficient Three-Dimensional Multilayer CMOS-RRAM Accelerator for T & 1 &  \\
+P & AI hardware & Grid Multibutterfly Memristive Neural Network With Three Memristive Systems: Modeling, Dynamic  & 0 & dynamics of memristive NN \\
+P & AI hardware & Gate-Controlled Memristor FPGA Model for Quantified Neural Network & 1 &  \\
+P & AI hardware & A Comprehensive Evaluation of Convolutional Hardware Accelerators & 1 &  \\
+P & AI hardware & SP-PIM: A Super-Pipelined Processing-In-Memory Accelerator With Local Error Prediction for Area & 1 &  \\
+P & AI hardware & Multiobjective End-to-End Design Space Exploration of Parameterized DNN Accelerators & 1 &  \\
+P & AI hardware & Toggle Rate Aware Quantization Model Based on Digital Floating-Point Computing-In-Memory Archit & 1 &  \\
+P & AI hardware & Hybrid Signed Convolution Module With Unsigned Divide-and-Conquer Multiplier for Energy-Efficie & 1 &  \\
+P & AI hardware & Asynchronous Fault Detection for Memristive Neural Networks With Dwell-Time-Based Communication & 0 & fault detection control theory \\
+P & AI hardware & DeepX: Deep Learning Accelerator for Restricted Boltzmann Machine Artificial Neural Networks & 1 &  \\
+P & AI hardware & High-Performance CNN Accelerator on FPGA Using Unified Winograd-GEMM Architecture & 1 &  \\
+P & AI hardware & Memristor-Based Cellular Nonlinear/Neural Network: Design, Analysis, and Applications & 1 &  \\
+P & AI hardware & An 8T PA Attack Resilient NVSRAM for In-Memory-Computing Applications & 1 &  \\
+P & AI hardware & Heterogeneous Mixed-Signal Monolithic 3-D In-Memory Computing Using Resistive RAM & 1 &  \\
+P & AI hardware & Investigation of Read Disturb and Bipolar Read Scheme on Multilevel RRAM-Based Deep Learning In & 1 &  \\
+P & AI hardware & FeMPIM: A FeFET-Based Multifunctional Processing-in-Memory Cell & 1 &  \\
+P & AI hardware & TIMAQ: A Time-Domain Computing-in-Memory-Based Processor Using Predictable Decomposed Convoluti & 1 &  \\
+P & AI hardware & An Efficient FPGA-Based Dilated and Transposed Convolutional Neural Network Accelerator & 1 &  \\
+P & AI hardware & iMCU: A 28-nm Digital In-Memory Computing-Based Microcontroller Unit for TinyML & 1 &  \\
+P & AI hardware & To Spike or Not to Spike: A Digital Hardware Perspective on Deep Learning Acceleration & 1 &  \\
+P & AI hardware & LOG-CIM: An Energy-Efficient Logarithmic Quantization Computing-In-Memory Processor With Expone & 1 &  \\
+P & AI hardware & A Deep Learning Accelerator Based on a Streaming Architecture for Binary Neural Networks & 1 &  \\
+P & AI hardware & An Error Compensation Technique for Low-Voltage DNN Accelerators & 1 &  \\
+P & AI hardware & A Weight Mapping Strategy for More Fully Exploiting Data in CIM-Based CNN Accelerator & 1 &  \\
+P & AI hardware & Reservoir Computing Based on ZnWO 4-x /WO 3-x Heterojunction Optoelectronic Memristor for Time- & 1 &  \\
+P & AI hardware & High-Throughput Pattern Matching With CMOL FPGA Circuits: Case for Logic-in-Memory Computing & 0 & logic-in-memory pattern matching (non-ML) \\
+P & AI hardware & A Novel Software-Defined Convolutional Neural Networks Accelerator & 1 &  \\
+P & AI hardware & Protein Alignment Systolic Array Throughput Optimization & 0 & protein alignment systolic array (non-ML) \\
+P & AI hardware & Time-Domain Computing in Memory Using Spintronics for Energy-Efficient Convolutional Neural Net & 1 &  \\
+P & AI hardware & An Experimentation Platform for On-Chip Integration of Analog Neural Networks: A Pathway to Tru & 1 &  \\
+P & AI hardware & BC-MVLiM: A Binary-Compatible Multi-Valued Logic-in-Memory Based on Memristive Crossbars & 1 &  \\
+P & AI hardware & An Energy-Efficient Neuromorphic Accelerator Based on Deformable Spiking Transformer for Dynami & 1 &  \\
+P & Neuromorphic & Spike Coding for Dynamic Vision Sensor in Intelligent Driving & 1 &  \\
+P & Neuromorphic & A CMOS Spiking Neuron for Brain-Inspired Neural Networks With Resistive Synapses and In Situ Le & 1 &  \\
+P & Neuromorphic & EEG-Based Emotion Classification Using Spiking Neural Networks & 1 &  \\
+P & Neuromorphic & Perturbation of Spike Timing Benefits Neural Network Performance on Similarity Search & 1 &  \\
+P & Neuromorphic & A 55-nm, 1.0-0.4V, 1.25-pJ/MAC Time-Domain Mixed-Signal Neuromorphic Accelerator With Stochasti & 1 &  \\
+P & Neuromorphic & Modular Modeling of Analog Organic Neuromorphic Circuits: Toward Prototyping of Hardware-Level  & 1 &  \\
+P & Neuromorphic & Hierarchical Address Event Routing for Reconfigurable Large-Scale Neuromorphic Systems & 1 &  \\
+P & Neuromorphic & On-Chip Trainable Spiking Neural Networks Using Time-To-First-Spike Encoding & 1 &  \\
+P & Neuromorphic & Arbitrary Spike Time Dependent Plasticity (STDP) in Memristor by Analog Waveform Engineering & 1 &  \\
+P & Neuromorphic & A Neuromorphic Spiking Neural Network Using Time-to-First-Spike Coding Scheme and Analog Comput & 1 &  \\
+P & Neuromorphic & Humidity-Dependent Synaptic Plasticity for Proton Gated Oxide Synaptic Transistor & 1 &  \\
+P & Neuromorphic & Adaptive Weight Quantization Method for Nonlinear Synaptic Devices & 1 &  \\
+P & Neuromorphic & Neuromorphic Artificial Touch for Categorization of Naturalistic Textures & 1 &  \\
+P & Neuromorphic & Improvement of State Stability in Multi-Level Resistive Random-Access Memory (RRAM) Array for N & 1 &  \\
+P & Neuromorphic & Multi-Focus Image Fusion Based on Adaptive Dual-Channel Spiking Cortical Model in Non-Subsample & 1 &  \\
+P & Neuromorphic & A New SCTN Digital Low Power Spiking Neuron & 1 &  \\
+P & Neuromorphic & A Junctionless Single Transistor Neuron With Vertically Stacked Multiple Nanowires for Highly S & 1 &  \\
+P & Neuromorphic & Equivalence of Additive and Multiplicative Coupling in Spiking Neural Networks & 1 &  \\
+P & Neuromorphic & An Optoelectronic Synaptic Transistor With Autotuning Active Photoadaptation for Artificial Vis & 1 &  \\
+P & Neuromorphic & Face Detection Using Hybrid SNN-ANN to Process Neuromorphic Event Stream & 1 &  \\
+P & Neuromorphic & Impact of Stack Engineering on HfOₓ/Al:HfOₓ-Based Flexible Resistive Memory Devices and Its Syn & 1 &  \\
+P & Neuromorphic & Locally Active Memristor-Based Neuromorphic Circuit: Firing Pattern and Hardware Experiment & 1 &  \\
+P & Neuromorphic & Cognitive Tactile Perceptual System by Integrating Oxide Neuromorphic Transistor With Triboelec & 1 &  \\
+P & Neuromorphic & Design of Leaky Integrate and Fire Neuron for Spiking Neural Networks Using Trench Bipolar I-MO & 1 &  \\
+P & Neuromorphic & Efficient Multispike Learning for Spiking Neural Networks Using Probability-Modulated Timing Me & 1 &  \\
+P & Neuromorphic & A 4096-Neuron 1M-Synapse 3.8-pJ/SOP Spiking Neural Network With On-Chip STDP Learning and Spars & 1 &  \\
+P & Neuromorphic & In 2 O 3 Nanofiber Neuromorphic Transistors for Reservoir Computing & 1 &  \\
+P & Neuromorphic & Light Induced Synaptic Transistor With Dual Operation Modes & 1 &  \\
+P & Neuromorphic & Efficient FPGA Implementations of Pair and Triplet-Based STDP for Neuromorphic Architectures & 1 &  \\
+P & Neuromorphic & A Dynamic Vision Sensor With 1\% Temporal Contrast Sensitivity and In-Pixel Asynchronous Delta M & 1 &  \\
+P & Neuromorphic & Y 2 O 3 -Based Crossbar Array for Analog and Neuromorphic Computation & 1 &  \\
+P & Neuromorphic & AMNED: An Efficient Framework for Spiking Neuron Coding in AirComp Federated Learning & 1 &  \\
+P & Neuromorphic & Realization of Artificial Neuron Using MXene Bi-Directional Threshold Switching Memristors & 1 &  \\
+P & Neuromorphic & Optimal Weight Models for Ferroelectric Synapses Toward Neuromorphic Computing & 1 &  \\
+P & Neuromorphic & Restoring-Free Transposable eDRAM-Based Computing-In-Memory System for SNN On-Chip Unsupervised & 1 &  \\
+P & Neuromorphic & CRAM: Collocated SRAM and DRAM With In-Memory Computing-Based Denoising and Filling for Neuromo & 1 &  \\
+P & Neuromorphic & PCMO-Based RRAM and NPN Bipolar Selector as Synapse for Energy Efficient STDP & 1 &  \\
+P & Neuromorphic & Oxygen Vacancy-Induced Synaptic Plasticity in InAlZnO Nanofiber Transistors for Low-Power Neuro & 1 &  \\
+P & Neuromorphic & Memristors Empower Spiking Neurons With Stochasticity & 1 &  \\
+P & Neuromorphic & An 82-nW 0.53-pJ/SOP Clock-Free Spiking Neural Network With 40-μs Latency for AIoT Wake-Up Func & 1 &  \\
+P & Neuromorphic & WO x -Based Synapse Device With Excellent Conductance Uniformity for Hardware Neural Networks & 1 &  \\
+P & Neuromorphic & A Dynamic System Approach to Spiking Second Order Memristor Networks & 1 &  \\
+P & Neuromorphic & Mitigating Asymmetric Nonlinear Weight Update Effects in Hardware Neural Network Based on Analo & 1 &  \\
+P & Neuromorphic & DS-CIM: A 40nm Asynchronous Dual-Spike Driven, MRAM Compute-In-Memory Macro for Spiking Neural  & 1 &  \\
+P & Neuromorphic & Proposal of a Control Algorithm for Multiagent Cooperation Using Spiking Neural Networks & 1 &  \\
+P & Neuromorphic & Neutron-Induced, Single-Event Effects on Neuromorphic Event-Based Vision Sensor: A First Step a & 1 &  \\
+P & Neuromorphic & Xception Spiking Fractional Neural Network for Oral Squamous Cell Carcinoma Classification Base & 1 &  \\
+P & Neuromorphic & Hardware-Based Noisy Deep Q-Networks Using Low-Frequency Noise of Synaptic Devices for Efficien & 1 &  \\
+P & Neuromorphic & Computational Scaling of Shape Similarity That has Potential for Neuromorphic Implementation & 1 &  \\
+P & Neuromorphic & How to Build a Memristive Integrate-and-Fire Model for Spiking Neuronal Signal Generation & 1 &  \\
+P & IoT/HW security & An Energy-Efficient Current-Starved Inverter Based Strong Physical Unclonable Function With Enh & 1 &  \\
+P & IoT/HW security & Design and Evaluation of a Printed Analog-Based Differential Physical Unclonable Function & 1 &  \\
+P & IoT/HW security & Prexion: Probabilistic Matching-Based Compression to Mitigate Compression Side Channel Attacks  & 0 & network/compression side channel (HTTPS), not hardware \\
+P & IoT/HW security & NeuroSCA: Evolving Activation Functions for Side-Channel Analysis & 1 &  \\
+P & IoT/HW security & A 2.86-TOPS/W Current Mirror Cross-Bar-Based Machine-Learning and Physical Unclonable Function  & 1 &  \\
+P & IoT/HW security & Static Physically Unclonable Functions for Secure Chip Identification With 1.9-5.8\% Native Bit  & 1 &  \\
+P & IoT/HW security & A 4900- m 2 839-Mb/s Side-Channel Attack- Resistant AES-128 in 14-nm CMOS With Heterogeneous Sb & 1 &  \\
+P & IoT/HW security & Reliability Assessment of Optical Physical Unclonable Functions Based on the Spatial Distributi & 1 &  \\
+P & IoT/HW security & A Multi-Layer Hardware Trojan Protection Framework for IoT Chips & 1 &  \\
+P & IoT/HW security & Efficient Dissimilarity Detection in Time Series With Application to Side-Channel Analysis & 1 &  \\
+P & IoT/HW security & A Unified Approach to Strong PUF and TRNG Using Ring Generator for Cryptography & 1 &  \\
+P & IoT/HW security & Side-Channel Attack on a Protected RFID Card & 1 &  \\
+P & IoT/HW security & Ultra-Low Power Oscillator Collapse Physical Unclonable Function Based on FinFET & 1 &  \\
+P & IoT/HW security & RePUF-IoT: Reconfigurable PUF-Based Authentication Protocol for IoT-Driven Healthcare Systems & 1 &  \\
+P & IoT/HW security & Implementing Homomorphic Encryption-Based Logic Locking in System-On-Chip Designs & 1 &  \\
+P & IoT/HW security & A Unified PUF and TRNG Design Based on 40-nm RRAM With High Entropy and Robustness for IoT Secu & 1 &  \\
+P & IoT/HW security & A Practical Logic Obfuscation Technique for Hardware Security & 1 &  \\
+P & IoT/HW security & A Physically Unclonable Bio-Signal Encoder for Privacy-Preserving IoMT Applications & 1 &  \\
+P & IoT/HW security & Poly-Si-Based Physical Unclonable Functions & 1 &  \\
+P & IoT/HW security & PRISTINE: An Emulation Platform for PCB-Level Hardware Trojans & 1 &  \\
+P & IoT/HW security & Compact PUF Design With Systematic Biases Mitigation on Xilinx FPGAs & 1 &  \\
+P & IoT/HW security & A Strong Subthreshold Current Array PUF Resilient to Machine Learning Attacks & 1 &  \\
+P & IoT/HW security & QPUF 2.0: Exploring Quantum Physical Unclonable Functions for Security-by-Design of Energy Cybe & 1 &  \\
+P & IoT/HW security & A New Reconfigurable True Random Number Generator and Physical Unclonable Function Unified Chip & 1 &  \\
+P & IoT/HW security & From Cryptography to Logic Locking: A Survey on the Architecture Evolution of Secure Scan Chain & 1 &  \\
+P & IoT/HW security & Anti-Synchronization and Robust Authentication for Noisy PUF-Based Smart Card & 1 &  \\
+P & IoT/HW security & A 4-fJ/b Delay-Hardened Physically Unclonable Function Circuit With Selective Bit Destabilizati & 1 &  \\
+P & IoT/HW security & A Unique and Robust Physically Unclonable Function Based on Bionic Tunable Ion Gel-Gated Synapt & 1 &  \\
+P & IoT/HW security & A Machine Learning Attack-Resilient Strong PUF Leveraging the Process Variation of MRAM & 1 &  \\
+P & IoT/HW security & Physical Unclonable Functions Based on Transient Form of Memristors for Emergency Defenses & 1 &  \\
+P & IoT/HW security & Improve SAC in PUFs: Metric, Analysis, Algorithm, and Application & 1 &  \\
+P & IoT/HW security & In-Memory Unified TRNG and PUF Based on RRAM Random Switching Time & 1 &  \\
+P & IoT/HW security & Logic Obfuscation Through Enhanced Threshold Voltage Defined Logic Family & 1 &  \\
+P & IoT/HW security & Physical Unclonable Function Systems Based on Pattern Transfer of Fingerprint-Like Patterns & 1 &  \\
+P & IoT/HW security & PLAKE: PUF-Based Secure Lightweight Authentication and Key Exchange Protocol for IoT & 1 &  \\
+P & IoT/HW security & Leakage-Resilient Certificate-Based Signature Resistant to Side-Channel Attacks & 0 & leakage-resilient signature scheme (crypto theory) \\
+P & IoT/HW security & A Novel Security Key Generation Method for SRAM PUF Based on Fourier Analysis & 1 &  \\
+P & IoT/HW security & A BER-Suppressed PUF With an Amplification of Process Mismatch Effect in an Oscillator Collapse & 1 &  \\
+P & IoT/HW security & A 20F 2 /Bit Current-Integration-Based Differential nand-Structured PUF for Stable and V / T Va & 1 &  \\
+P & IoT/HW security & ASCH-PUF: A “Zero” Bit Error Rate CMOS Physically Unclonable Function With Dual-Mode Low-Cost S & 1 &  \\
+P & IoT/HW security & Hypothesis Testing Based Side-Channel Collision Analysis & 1 &  \\
+P & IoT/HW security & Optimization of RRAM-Based Physical Unclonable Function With a Novel Differential Read-Out Meth & 1 &  \\
+P & IoT/HW security & Concealable Oscillation-Based Physical Unclonable Function With a Single-Transistor Latch & 1 &  \\
+P & IoT/HW security & Physical Unclonable Functions Using Ferroelectric Tunnel Junctions & 1 &  \\
+P & IoT/HW security & Physically Unclonable Function Using an Initial Waveform of Ring Oscillators & 1 &  \\
+P & IoT/HW security & A Machine Learning Attack-Resistant PUF-Based Robust and Efficient Mutual Authentication Scheme & 1 &  \\
+P & IoT/HW security & Performance Improvement of AlN-Based RRAMs Using Ag Layer for Hardware Security Applications & 1 &  \\
+P & IoT/HW security & Power Side-Channel Attacks on Crypto-Core Based on RISC-V ISA for High-Security Applications & 1 &  \\
+P & IoT/HW security & Multigated Carbon Nanotube Field Effect Transistors-Based Physically Unclonable Functions As Se & 1 &  \\
+P & IoT/HW security & Masked SABL: A Long Lasting Side-Channel Protection Design Methodology & 1 &  \\
+P & Quantum comp. eng. & Distributed Quantum Computing and Network Control for Accelerated VQE & 1 &  \\
+P & Quantum comp. eng. & QuCardio: Application of Quantum Machine Learning for Detection of Cardiovascular Diseases & 1 &  \\
+P & Quantum comp. eng. & A Heuristic for Linear Nearest Neighbor Realization of Quantum Circuits by SWAP Gate Insertion  & 1 &  \\
+P & Quantum comp. eng. & A 600-V Peak-to-Peak 65-dBc RF Signal Source for Trapped-Ion Quantum Computing & 1 &  \\
+P & Quantum comp. eng. & Preparing Dicke States on a Quantum Computer & 1 &  \\
+P & Quantum comp. eng. & A Computer Science-Oriented Approach to Introduce Quantum Computing to a New Audience & 1 &  \\
+P & Quantum comp. eng. & MIMO With 1-b Pre/Postcoding Resolution: A Quantum Annealing Approach & 1 &  \\
+P & Quantum comp. eng. & A Systematic Literature Review of Quantum Computing for Routing Problems & 1 &  \\
+P & Quantum comp. eng. & Development of an Undergraduate Quantum Engineering Degree & 1 &  \\
+P & Quantum comp. eng. & Trellis Decoding for Qudit Stabilizer Codes and Its Application to Qubit Topological Codes & 1 &  \\
+P & Quantum comp. eng. & A New Alliance of Machine Learning and Quantum Computing: Concepts, Attacks, and Challenges in  & 1 &  \\
+P & Quantum comp. eng. & Global Roots and Poles Finding Algorithm on Quantum Computer & 1 &  \\
+P & Quantum comp. eng. & A Benchmark of Cryo-CMOS Embedded SRAM/DRAMs in 40-nm CMOS & 1 &  \\
+P & Quantum comp. eng. & A New Quantum Circuits of Quantum Convolutional Neural Network for X-Ray Images Classification & 1 &  \\
+P & Quantum comp. eng. & Controller-Based Energy-Aware Wireless Sensor Network Routing Using Quantum Algorithms & 1 &  \\
+P & Quantum comp. eng. & Expressivity of Variational Quantum Machine Learning on the Boolean Cube & 1 &  \\
+P & Quantum comp. eng. & Quantum Optical Convolutional Neural Network: A Novel Image Recognition Framework for Quantum C & 1 &  \\
+P & Quantum comp. eng. & Simulator Demonstration of Large Scale Variational Quantum Algorithm on HPC Cluster & 1 &  \\
+P & Quantum comp. eng. & Qubit-Compatible Substrates With Superconducting Through-Silicon Vias & 1 &  \\
+P & Quantum comp. eng. & Efficient Pause Location Prediction Using Quantum Annealing Simulations and Machine Learning & 1 &  \\
+P & Quantum comp. eng. & isQ: An Integrated Software Stack for Quantum Programming & 1 &  \\
+P & Quantum comp. eng. & Expressiveness of Commutative Quantum Circuits: A Probabilistic Approach & 1 &  \\
+P & Quantum comp. eng. & Performance of Quantum Annealing Machine Learning Classification Models on ADMET Datasets & 1 &  \\
+P & Quantum comp. eng. & Distributionally Robust Variational Quantum Algorithms With Shifted Noise & 1 &  \\
+P & Quantum comp. eng. & Effect of Quantum Noise on Deterministic Remote Preparation of an Arbitrary Two-Qubit State Wit & 0 & quantum communication protocol \\
+P & Quantum comp. eng. & Quantum Circuit Architecture Optimization for Variational Quantum Eigensolver via Monto Carlo T & 1 &  \\
+P & Quantum comp. eng. & Qubit Neural Tree Network With Applications in Nonlinear System Modeling & 0 & quantum-inspired classical neural network \\
+P & Quantum comp. eng. & Automated Detection of Retinopathy of Prematurity Using Quantum Machine Learning and Deep Learn & 1 &  \\
+P & Quantum comp. eng. & End-to-End Workflow for Machine-Learning-Based Qubit Readout With QICK and hls4ml & 1 &  \\
+P & Quantum comp. eng. & A 43.4-dB Gain 7.6-mW 197.5\% Bandwidth Double Noise-Canceling Cryogenic LNA Using Gain Peaking  & 1 &  \\
+P & Quantum comp. eng. & Sequential Quantum Multiparty Signature Based on Quantum Fourier Transform and Chaotic System & 0 & quantum cryptographic signature \\
+P & Quantum comp. eng. & Inverse Reticle Optimization With Quantum Annealing and Hybrid Solvers & 1 &  \\
+P & Quantum comp. eng. & Predictive Time-Series Analysis of Single-Qubit Quantum Circuit Outcomes for a Superconducting  & 1 &  \\
+P & Quantum comp. eng. & Indium-Based Flip-Chip Interconnection by Electroplating Method for Superconducting Quantum 3D  & 1 &  \\
+P & Quantum comp. eng. & Modeling and Experimental Validation of the Intrinsic SNR in Spin Qubit Gate-Based Readout and  & 1 &  \\
+P & Quantum comp. eng. & Effective Channel Mobility Extraction and Modeling of 10-nm Bulk CMOS FinFETs in Cryogenic Temp & 1 &  \\
+P & Quantum comp. eng. & Quantum Computing in Semantic Communications: Overcoming Optimization Challenges With High-Dime & 1 &  \\
+P & Quantum comp. eng. & Design and Analysis of a 4.2 mW 4 K 6-8 GHz CMOS LNA for Superconducting Qubit Readout & 1 &  \\
+P & Quantum comp. eng. & Variational Quantum Algorithm for Solving Quantum Transport Equation in Semiconductor Device & 1 &  \\
+P & Quantum comp. eng. & Quantum Algorithm for Spectral Regression for Regularized Subspace Learning & 1 &  \\
+P & Quantum comp. eng. & Quantum-Annealing-Based Sum Rate Maximization for Multi-UAV-Aided Wireless Networks & 1 &  \\
+P & Quantum comp. eng. & Toward a Quantum-Science Gateway: A Hybrid Reference Architecture Facilitating Quantum Computin & 1 &  \\
+P & Quantum comp. eng. & Quantum Cryptanalysis on a Multivariate Cryptosystem Based on Clipped Hopfield Neural Network & 1 &  \\
+P & Quantum comp. eng. & CMOS Position-Based Charge Qubits: Theoretical Analysis of Control and Entanglement & 1 &  \\
+P & Quantum comp. eng. & 2021 Index IEEE Transactions on Quantum Engineering Vol. 2 & 0 & journal index item (non-research) \\
+P & Quantum comp. eng. & Cryogenic Body Bias Effect in DRAM Peripheral and Buried-Channel-Array Transistor for Quantum C & 1 &  \\
+P & Quantum comp. eng. & A Comprehensively Adaptive Architectural Optimization-Ingrained Quantum Neural Network Model fo & 0 & quantum-inspired classical neural network \\
+P & Quantum comp. eng. & Variational Quantum Algorithms for the Allocation of Resources in a Cloud/Edge Architecture & 1 &  \\
+P & Quantum comp. eng. & Modeling of Semiconductor Electrostatic Qubits Realized Through Coupled Quantum Dots & 1 &  \\
+P & Quantum comp. eng. & Computational Analysis: Unveiling the Quantum Algorithms for Protein Analysis and Predictions & 1 &  \\
+N & AI hardware & A Configurable 10T SRAM-Based IMC Accelerator With Scaled-Voltage-Based Pulse Count Modulation  & 1 & SRAM 'IMC' accelerator (abbreviation not matched) \\
+N & AI hardware & Demonstration of Low Power and Highly Uniform 6-bit Operation in SiO 2 -Based Memristors Embedd & 0 &  \\
+N & AI hardware & Self-Limited CBRAM With Threshold Selector for 1S1R Crossbar Array Applications & 0 &  \\
+N & AI hardware & X-SRAM: Enabling In-Memory Boolean Computations in CMOS Static Random Access Memories & 1 & in-memory Boolean computing \\
+N & AI hardware & Factored Systolic Arrays Based on Radix-8 Multiplication for Machine Learning Acceleration & 1 & systolic 'arrays' for ML acceleration (plural not in hardwar \\
+N & AI hardware & Stochastic Momentum Method With Double Acceleration for Regularized Empirical Risk Minimization & 0 &  \\
+N & AI hardware & Pruning Blocks for CNN Compression and Acceleration via Online Ensemble Distillation & 0 &  \\
+N & AI hardware & Accelerated Adaptive Gradient Neural Dynamics Models for Solving Time-Variant Lyapunov Equation & 0 &  \\
+N & AI hardware & Accelerating First-Order Secure ML-KEM With Masked SHA-3: Cost, Randomness, and Security Evalua & 0 &  \\
+N & AI hardware & Toward Composing Efficient FPGA-Based Hardware Accelerators for Physics-Based Model Predictive  & 0 &  \\
+N & AI hardware & Event-Based Extended Dissipative State Estimation for Memristor-Based Markovian Neural Networks & 0 &  \\
+N & AI hardware & On Noise Stability and Robustness of Adversarially Trained Networks on NVM Crossbars & 1 & adversarial networks on NVM crossbars \\
+N & AI hardware & New Design of PI Regulator Circuit Based on Three-Terminal Memristors & 0 &  \\
+N & AI hardware & Accelerating Scalar Conversion for Koblitz Curve Cryptoprocessors on Hardware Platforms & 0 &  \\
+N & AI hardware & An Energy-Scalable Accelerator for Blind Image Deblurring & 0 &  \\
+N & AI hardware & Memristor-Coupled Logistic Hyperchaotic Map & 0 &  \\
+N & AI hardware & Reliability and Failure Modes of Solid-State Lighting Electrical Drivers Subjected to Accelerat & 0 &  \\
+N & AI hardware & Real-Time Estimation of Wind-Induced Pointing Error via Accelerations Measurement for Large Ref & 0 &  \\
+N & AI hardware & MDE-Based Approach for Accelerating the Development of Recommender Systems in Smart Tourism & 0 &  \\
+N & AI hardware & A Novel In-Memory Wallace Tree Multiplier Architecture Using Majority Logic & 1 & in-memory multiplier \\
+N & AI hardware & Enhancing Explainability and Accelerating Materials Science Design With Linguistic Summaries & 0 &  \\
+N & AI hardware & Accelerating Model-Free Reinforcement Learning With Imperfect Model Knowledge in Dynamic Spectr & 0 &  \\
+N & AI hardware & M 2 -ViT: Accelerating Hybrid Vision Transformers With Two-Level Mixed Quantization & 1 & vision-transformer accelerator \\
+N & AI hardware & Low-Latency Hardware Accelerator for Improved Engle-Granger Cointegration in Pairs Trading & 0 &  \\
+N & AI hardware & Iterative Learning Control Based on Nesterov Accelerated Gradient Method & 0 &  \\
+N & AI hardware & Ferroelectric FETs-Based Nonvolatile Logic-in-Memory Circuits & 1 & logic-in-memory circuits \\
+N & AI hardware & CHAMP: Channel Merging Process for Cost-Efficient Highly-Pruned CNN Acceleration & 0 &  \\
+N & AI hardware & A Hybrid-Feature-Based Autoencoder Model for Predicting Traffic Flow to Accelerate Ambulance Me & 0 &  \\
+N & AI hardware & Stochastic Templates and Noise Dynamics in Memristor Cellular Nonlinear Networks & 0 &  \\
+N & AI hardware & Beekeeper: Accelerating Honeypot Analysis With LLM-Driven Feedback & 0 &  \\
+N & Neuromorphic & Theoretical Study of Oscillator Neurons in Recurrent Neural Networks & 0 &  \\
+N & Neuromorphic & Combined Oriented Data Augmentation Method for Brain MRI Images & 0 &  \\
+N & Neuromorphic & Neuroinfinity: A Lightweight Prompt-Driven Vision-Language Framework for Alzheimer’s Disease St & 0 &  \\
+N & Neuromorphic & Recognizing Special Art Pieces Through EEG: A Journey in Neuroaesthetics Classification & 0 &  \\
+N & Neuromorphic & IoMT-Enabled Smart-Cap-Powered Ultrawideband Brain Implant for Multichannel Epilepsy Monitoring & 0 &  \\
+N & Neuromorphic & Effective Information Filtering Mining of Internet of Brain Things Based on Support Vector Mach & 0 &  \\
+N & Neuromorphic & A Versatile Embedded Platform for Implementation of Biocooperative Control in Upper-Limb Neurom & 0 &  \\
+N & Neuromorphic & Neuro-Symbolic Speech Understanding in Aircraft Maintenance Metaverse & 0 &  \\
+N & Neuromorphic & Connected and Autonomous Vehicle Cohort Speed Control Optimization via Neuroevolution & 0 &  \\
+N & Neuromorphic & A Hybrid Feature Selection With Ensemble Classification for Imbalanced Healthcare Data: A Case  & 0 &  \\
+N & Neuromorphic & Bicriteria Sparse Nonnegative Matrix Factorization via Two-Timescale Duplex Neurodynamic Optimi & 0 &  \\
+N & Neuromorphic & Hippocampal Segmentation From Longitudinal Infant Brain MR Images via Classification-Guided Bou & 0 &  \\
+N & Neuromorphic & Cognitive and Affective Brain-Computer Interfaces for Improving Learning Strategies and Enhanci & 0 &  \\
+N & Neuromorphic & Brain MRI Image Classification for Cancer Detection Using Deep Wavelet Autoencoder-Based Deep N & 0 &  \\
+N & Neuromorphic & Sparse Representation-Based Denoising for High-Resolution Brain Activation and Functional Conne & 0 &  \\
+N & Neuromorphic & Prediction of Blood-Brain Barrier Permeability of Compounds by Fusing Resampling Strategies and & 0 &  \\
+N & Neuromorphic & The Self-Motion Information Response Model in Brain-Inspired Navigation & 0 &  \\
+N & Neuromorphic & Automated Detection of Schizophrenia Based on Retinal Measures and Neurological Soft Signs: App & 0 &  \\
+N & Neuromorphic & ViEMGT: A Novel Transformer Architecture for Enhanced Hand Gesture Recognition From HD-sEMG in  & 0 &  \\
+N & Neuromorphic & A Novel Event-Related Potential-Based Brain-Computer Interface for Continuously Controlling Dyn & 0 &  \\
+N & Neuromorphic & Edge of Chaos Theory Sheds Light Into the All-to-None Phenomenon in Neurons—Part I: On the Fund & 0 &  \\
+N & Neuromorphic & Color Image Encryption Algorithm Using DNA Encoding and Fuzzy Single Neurons & 0 &  \\
+N & Neuromorphic & Industrial Time Series Modelling by Means of the Neo-Fuzzy Neuron & 0 &  \\
+N & Neuromorphic & A Power-Efficient Switched-Capacitor Stimulating System for Electrical/Optical Deep Brain Stimu & 0 &  \\
+N & Neuromorphic & Brain Tumor Classification Using Hybrid Single Image Super-Resolution Technique With ResNext101 & 0 &  \\
+N & Neuromorphic & Multi-View Multi-Label Fine-Grained Emotion Decoding From Human Brain Activity & 0 &  \\
+N & Neuromorphic & Many-Objective Brain Storm Optimization Algorithm & 0 &  \\
+N & Neuromorphic & A Hypothesis Testing for Large Weighted Networks With Applications to Functional Neuroimaging D & 0 &  \\
+N & Neuromorphic & Air Quality Forecast Monitoring and Its Impact on Brain Health Based on Big Data and the Intern & 0 &  \\
+N & Neuromorphic & Real-Time Implementation of Adaptive Neuro Backstepping Controller for Maximum Power Point Trac & 0 &  \\
+N & IoT/HW security & A Cross-Trusted Authority Authentication Protocol for Internet of Vehicles Based on Blockchain & 0 &  \\
+N & IoT/HW security & Laser Guard: Efficiently Detecting Laser-Based Physical Adversarial Attacks in Autonomous Drivi & 0 &  \\
+N & IoT/HW security & New Mathematical Model to Analyze Security of Sharding-Based Blockchain Protocols & 0 &  \\
+N & IoT/HW security & Identification of Return-Oriented Programming Attacks Using RISC-V Instruction Trace Data & 0 &  \\
+N & IoT/HW security & Security Enhanced CLS and CL-AS Scheme Without Pairings for VANETs & 0 &  \\
+N & IoT/HW security & ADATA: Asymmetric Device Identifier Composition Engine Compliant Aggregate Trust Attestation & 1 & DICE hardware root-of-trust attestation \\
+N & IoT/HW security & A Forward-Secure Symmetric Authenticated Key Exchange Scheme With Privacy Preservation for Inte & 0 &  \\
+N & IoT/HW security & Leader-Following Consensus of Multiple Euler-Lagrange Systems Under Deception Attacks & 0 &  \\
+N & IoT/HW security & The DAO Induction Attack: Analysis and Countermeasure & 0 &  \\
+N & IoT/HW security & Multi-Dimensional Trust Quantification by Artificial Agents Through Evidential Fuzzy Multi-Crit & 0 &  \\
+N & IoT/HW security & Distributed MPC-Based Constant Voltage Control for DC Microgrids Under DoS Attacks & 0 &  \\
+N & IoT/HW security & An Overview of Automotive Service-Oriented Architectures and Implications for Security Counterm & 0 &  \\
+N & IoT/HW security & Multi-User Secure Receiving Algorithm Based on Blind Recovery in MIMO Network & 0 &  \\
+N & IoT/HW security & RoundImage: Toward Secure Graphical Password Authentication via Rounded Image Selection in IoT & 0 &  \\
+N & IoT/HW security & Enhancing Event-Driven Load Shedding by Corrective Switching With Transient Security and Overlo & 0 &  \\
+N & IoT/HW security & Modeling and Analysis of Eavesdropping Attack in 802.11ad mmWave Wireless Networks & 0 &  \\
+N & IoT/HW security & Two-Stage Robust Security-Constrained Unit Commitment Model Considering Time Autocorrelation of & 0 &  \\
+N & IoT/HW security & OD-SHIELD: Convolutional Autoencoder-Based Defense Against Adversarial Patch Attacks in Object  & 0 &  \\
+N & IoT/HW security & Secure and Transparent Mobility in Smart Cities: Revolutionizing AVNs to Predict Traffic Conges & 0 &  \\
+N & IoT/HW security & A Frictionless and Secure User Authentication in Web-Based Premium Applications & 0 &  \\
+N & IoT/HW security & A Two-Fold Machine Learning Approach to Prevent and Detect IoT Botnet Attacks & 0 &  \\
+N & IoT/HW security & Secure AirComp Federated Learning With STAR-IRS & 0 &  \\
+N & IoT/HW security & Probabilistic-Constrained H ∞ Tracking Control for a Class of Stochastic Nonlinear Systems Subj & 0 &  \\
+N & IoT/HW security & ESDRA: An Efficient and Secure Distributed Remote Attestation Scheme for IoT Swarms & 0 &  \\
+N & IoT/HW security & A Novel Semi-Supervised Adversarially Learned Meta-Classifier for Detecting Neural Trojan Attac & 0 &  \\
+N & IoT/HW security & A Secure Blockchain-Assisted Access Control Scheme for Smart Healthcare System in Fog Computing & 0 &  \\
+N & IoT/HW security & Security Gap Improvement of BICM Systems Through Bit-Labeling Optimization for the Gaussian Wir & 0 &  \\
+N & IoT/HW security & A Lightweight and Secure Authentication Scheme for Remote Monitoring of Patients in IoMT & 0 &  \\
+N & IoT/HW security & Attack-Resistant, Energy-Adaptive Monitoring for Smart Farms: Uncertainty-Aware Deep Reinforcem & 0 &  \\
+N & IoT/HW security & seIMC: A GSW-Based Secure and Efficient Integer Matrix Computation Scheme With Implementation & 0 &  \\
+N & Quantum comp. eng. & High Output Power GaN-Based Green Resonant-Cavity Light-Emitting Diodes With Trapezoidal Quantu & 0 &  \\
+N & Quantum comp. eng. & Design and Implementation of a Post-Quantum Group Authenticated Key Exchange Protocol With the  & 0 &  \\
+N & Quantum comp. eng. & Systematic Study of the Incorporation of Quantum-Coupling 2-D Materials in the FET Gate/Channel & 0 &  \\
+N & Quantum comp. eng. & Private Computation of Phylogenetic Trees Based on Quantum Technologies & 0 &  \\
+N & Quantum comp. eng. & A Novel Hybrid Quantum Particle Swarm Optimization With Marine Predators for Engineering Design & 0 &  \\
+N & Quantum comp. eng. & Correlation Between Surface Functionalization and Optoelectronic Properties in Quantum Dot Phot & 0 &  \\
+N & Quantum comp. eng. & Optimized InGaN/GaN Quantum Structure for High-Efficiency Micro-LEDs Displays With Low Current  & 0 &  \\
+N & Quantum comp. eng. & Microwave Gaussian Quantum Sensing With a CNOT Gate Receiver & 1 & quantum sensing with CNOT gate receiver \\
+N & Quantum comp. eng. & Quantum Imitation Learning & 1 & quantum imitation learning \\
+N & Quantum comp. eng. & A New Post-Quantum Blind Signature From Lattice Assumptions & 0 &  \\
+N & Quantum comp. eng. & An Engineer's Brief Introduction to Microwave Quantum Optics and a Single-Port State-Space Repr & 1 & microwave quantum optics for engineers \\
+N & Quantum comp. eng. & A Surrogate Assisted Quantum-Behaved Algorithm for Well Placement Optimization & 0 &  \\
+N & Quantum comp. eng. & Quantum-Dots Optimized Electrode for High-Stability Transient Memristor & 0 &  \\
+N & Quantum comp. eng. & Efficient Error Detection Architectures for Postquantum Signature Falcon’s Sampler and KEM SABE & 0 &  \\
+N & Quantum comp. eng. & Decentralization Using Quantum Blockchain: A Theoretical Analysis & 0 &  \\
+N & Quantum comp. eng. & Impact of H 2 High-Pressure Annealing Onto InGaAs Quantum-Well Metal-Oxide-Semiconductor Field- & 0 &  \\
+N & Quantum comp. eng. & Equivalent Circuit of Quantum-Dot LED and Acquisition of Carrier Lifetime in Active Layer & 0 &  \\
+N & Quantum comp. eng. & A Third-Party Mobile Payment Scheme Based on NTRU Against Quantum Attacks & 0 &  \\
+N & Quantum comp. eng. & CRYPHTOR: A Memory-Unified NTT-Based Hardware Accelerator for Post-Quantum CRYSTALS Algorithms & 0 &  \\
+N & Quantum comp. eng. & Near-Hashing-Bound Multiple-Rate Quantum Turbo Short-Block Codes & 1 & quantum turbo codes \\
+N & Quantum comp. eng. & Design of Denoising Method for Underwater Communication Based on Adaptive Chunking Algorithm an & 0 &  \\
+N & Quantum comp. eng. & Enabling Quantum-Resistant EDHOC: Design and Performance Evaluation & 0 &  \\
+N & Quantum comp. eng. & Network Coding Aided Cooperative Quantum Key Distribution Over Free-Space Optical Channels & 0 &  \\
+N & Quantum comp. eng. & Quantum Sealed-Bid Auction Without a Trusted Third Party & 0 &  \\
+N & Quantum comp. eng. & Quantum Image Encryption Using Intra and Inter Bit Permutation Based on Logistic Map & 0 &  \\
+N & Quantum comp. eng. & Verifiable Quantum Cloud Computation Scheme Based on Blind Computation & 1 & verifiable quantum cloud computation \\
+N & Quantum comp. eng. & Quantum Processing in Fusion of SAR and Optical Images for Deep Learning: A Data-Centric Approa & 1 & quantum processing for SAR fusion \\
+N & Quantum comp. eng. & Maximum Limits on External Quantum Efficiencies in Bare LEDs & 0 &  \\
+N & Quantum comp. eng. & 2-D Quantum Confined Threshold Voltage Shift Model for Asymmetric Short-Channel Junctionless Qu & 0 &  \\
+N & Quantum comp. eng. & Application of Quantum Genetic Optimization of LVQ Neural Network in Smart City Traffic Network & 0 &  \\
+\end{longtable}
+
+\begin{longtable}{@{}llL{11.3cm}@{}}
+\caption{Programme sample and primary catalogue source (retrieved 2 November 2026; all sources in the data release).}\label{tab:S4}\\
+\toprule
+Programme & Region & Source \\
+\midrule
+\endfirsthead
+\toprule
+Programme & Region & Source \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+MIT & USA & {\scriptsize\url{https://catalog.mit.edu/subjects/6/}} \\
+Georgia Tech & USA & {\scriptsize\url{https://catalog.gatech.edu/courses-undergrad/ece/}} \\
+UIUC & USA & {\scriptsize\url{https://catalog.illinois.edu/courses-of-instruction/ece/}} \\
+UMD College Park & USA & {\scriptsize\url{https://academiccatalog.umd.edu/undergraduate/approved-courses/enee/}} \\
+UCSD & USA & {\scriptsize\url{https://catalog.ucsd.edu/courses/ECE.html}} \\
+Purdue & USA & {\scriptsize\url{https://catalog.purdue.edu/content.php?catoid=19&navoid=25468 (prefix ECE)}} \\
+UT Austin & USA & {\scriptsize\url{https://catalog.utexas.edu/general-information/coursesatoz/ece/}} \\
+Stanford & USA & {\scriptsize\url{https://explorecourses.stanford.edu/search?view=xml-20140630&filter-coursestatus-Active=on&q=EE&filter-departmentcode-EE=on}} \\
+Cornell & USA & {\scriptsize\url{https://courses.cornell.edu/courses/ece/}} \\
+Texas A\&M & USA & {\scriptsize\url{https://catalog.tamu.edu/undergraduate/course-descriptions/ecen/}} \\
+CMU & USA & {\scriptsize\url{https://courses.ece.cmu.edu/}} \\
+Cambridge & Europe & {\scriptsize\url{https://www.admin.cam.ac.uk/reporter/2024-25/weekly/6788/section3.shtml}} \\
+Imperial College & Europe & {\scriptsize\url{https://www.imperial.ac.uk/engineering/departments/electrical-engineering/study/module-catalogue/}} \\
+Oxford & Europe & {\scriptsize\url{https://eng.ox.ac.uk/study/undergraduate/your-degree/ (Prelims & FHS handbooks 2026-27; 3rd- and 4th-year syllabi 2025-26)}} \\
+TU Delft & Europe & {\scriptsize\url{https://curriculum.tudelft.nl/publisher/api/v0/courses/items/search (jaar=2025-2026)}} \\
+KTH & Europe & {\scriptsize\url{https://www.kth.se/student/kurser/org/<dept>?l=en}} \\
+ETH Zürich & Europe & {\scriptsize\url{https://www.vvz.ethz.ch/Vorlesungsverzeichnis/sucheLehrangebot.view (BSc EEIT, MSc EEIT, Doctorate ITET sections; 2025W + 2026S)}} \\
+EPFL & Europe & {\scriptsize\url{https://edu.epfl.ch/studyplan/en/bachelor/electrical-and-electronics-engineering/}} \\
+NUS & Asia & {\scriptsize\url{https://api.nusmods.com/v2/2026-2027/moduleInfo.json}} \\
+NTU Singapore & Asia & {\scriptsize\url{https://wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1 (POST)}} \\
+KAIST & Asia & {\scriptsize\url{https://ee.kaist.ac.kr/en/under-curr-list/}} \\
+HKUST & Asia & {\scriptsize\url{https://prog-crs.hkust.edu.hk/ugcourse/2026-27/ELEC}} \\
+Tsinghua & Asia & {\scriptsize\url{https://www.ee.tsinghua.edu.cn/en/Academics/Curriculum.htm}} \\
+ODTÜ (METU) & Türkiye & {\scriptsize\url{https://eee.metu.edu.tr/all-courses}} \\
+Boğaziçi & Türkiye & {\scriptsize\url{https://ee.bogazici.edu.tr/en/pages/undergraduate-courses-new/1268}} \\
+Bilkent & Türkiye & {\scriptsize\url{https://catalog.bilkent.edu.tr/dep/dc12.html}} \\
+\end{longtable}
+
+\begin{longtable}{@{}lllrrrlL{6.3cm}@{}}
+\caption{Catalogue coverage audit. Only catalogues with status `complete' enter the analysis.}\label{tab:S5}\\
+\toprule
+Programme & Status & Source type & UG & UG/G & G & Descr. & Notes \\
+\midrule
+\endfirsthead
+\toprule
+Programme & Status & Source type & UG & UG/G & G & Descr. & Notes \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+MIT & complete & catalog\_html & 225 & 0 & 232 & yes & slug=mit. All Course 6 (EECS) subjects in the current MIT Bulletin as served 2026-11-02 (no edition year printed). Level from U/G tag in each subject level line \\
+Georgia Tech & complete & catalog\_html & 140 & 0 & 159 & partial & slug=gatech. 2026-27 catalogue. UG page (1000-4999) vs Graduate page (6000+). 7 transfer-credit placeholders excluded. 46 rows without description are special-t \\
+UIUC & complete & catalog\_html & 41 & 85 & 79 & yes & slug=uiuc. 2026-27 catalogue. Level from catalogue general-information numbering rule (400-499 = UG and graduate -> UG/G). 23 cross-listed rows take description \\
+UMD College Park & complete & catalog\_html & 21 & 44 & 56 & partial & slug=umd. 2026-27 catalogue, UG and graduate ENEE lists. Course in both lists = UG/G (all 44 are 400-level, matching UMD rule). 5 rows (topics shells, thesis) w \\
+UCSD & complete & catalog\_html & 89 & 0 & 115 & yes & slug=ucsd. General Catalog 2026-27. Lower/upper division UG, 200-299 G per catalogue numbering rule. Offerings vary by year per catalogue note. Rows with descri \\
+Purdue & complete & headless & 107 & 69 & 90 & yes & slug=purdue. Acalog 2026-27 catalogue rendered with headless Chrome (plain requests got HTTP 202 empty bot-check). 50000-level = dual-level per Purdue Course Nu \\
+UT Austin & complete & catalog\_html & 114 & 0 & 219 & partial & slug=utaustin. 2026-27 catalogue; CourseLeaf search API returns the same 333 courses. 170 of 333 rows are graduate topic sub-numbers (e.g. ECE X80L.11); 163 bas \\
+Stanford & complete & api & 54 & 0 & 149 & yes & slug=stanford. ExploreCourses XML, AY2026-27; level from academicCareer field (UG/GR). Many 100-299 courses are open to both levels but the record carries a sin \\
+Cornell & complete & headless & 60 & 0 & 101 & partial & slug=cornell. Courses of Study 2026-27 (headless; plain request returns HTTP 202 bot-check). Class Roster API FA25+SP26+FA26 used as completeness check; 1 roste \\
+Texas A\&M & complete & catalog\_html & 79 & 0 & 99 & yes & slug=tamu. 2026-27 UG and Graduate \& Professional catalogues; catalogue membership is the level rule. 8 cross-listed rows keep both codes. Rows with description \\
+CMU & complete & catalog\_html & 82 & 0 & 176 & partial & slug=cmu. Department course list (410 entries back to 2004) filtered to courses offered AY2022-23 or later or present in the 2026-27 catalogue (inclusion rule;  \\
+Cambridge & partial & catalog\_html+pdf & 53 & 4 & 65 & no & slug=cambridge. Module list complete for Parts IIA/IIB 2025-26 (University Reporter 6788); Parts IA/IB only at examination-paper level (Statutes \& Ordinances 20 \\
+Imperial College & complete & catalog\_html+pdf & 56 & 0 & 105 & partial & slug=imperial. EEE module catalogue 2026-27 (Years 1-4 EEE/EIE + MSc) and 130 module-specification PDFs. Level from FHEQ level in each specification (4-6 UG, 7  \\
+Oxford & complete & pdf & 32 & 0 & 30 & partial & slug=oxford. Unit = examination paper (Prelims P1-P5, Part A A1-A5, Part B, Part C C1-C30). Part C coded G (MEng integrated Masters at FHEQ level 7; leavers bef \\
+TU Delft & complete & api & 31 & 0 & 150 & partial & slug=tudelft. Public JSON API behind studiegids. Courses linked to BSc Electrical Engineering (UG) or MSc Electrical Engineering (G), 2025-26 (2026-27 data stil \\
+KTH & complete & catalog\_html & 44 & 0 & 322 & yes & slug=kth. Kopps API retired (404). Scope: EECS Dept. of Electrical Engineering (JJ, JJN, JJG, JJF) + Intelligent Systems divisions JRL, JRO, JRQ. Level from KTH \\
+ETH Zürich & complete & catalog\_html & 114 & 40 & 199 & yes & slug=eth. D-ITET is deptId 18 (old URL used 4). Level from VVZ programme section; listed in both BSc and MSc/Doctorate = UG/G. Includes non-227 courses listed i \\
+EPFL & complete & study\_plan & 62 & 0 & 111 & partial & slug=epfl. 2026-27 study plans + 173 coursebook pages. Propaedeutic/bachelor plan UG, master plan G. 44 descriptions are French (kept verbatim); 9 without descr \\
+NUS & complete & api & 151 & 0 & 157 & yes & slug=nus. NUSMods AY2026-27. Modules with department "Electrical and Computer Engineering" plus CG-prefix (B.Eng. CEG). Level per NUS Registrar: 1000-4000 UG, 5 \\
+NTU Singapore & partial & catalog\_html & 72 & 12 & 68 & yes & slug=ntu. UG list only shows courses offered in the four semesters queried (AY2025 S1/S2/ST, AY2026 S1); G from five EEE MSc curriculum tables. PhD-only EE7xxx  \\
+KAIST & complete & catalog\_html & 81 & 0 & 143 & yes & slug=kaist. English subject lists (undated, current web listing). Level by list membership. 75 rows are section/special-topics offerings with subtitles (170 dis \\
+HKUST & complete & catalog\_html & 67 & 0 & 77 & yes & slug=hkust. AY2026-27. UG catalogue UG, PG catalogue G. ELEC + CPEG (UG) + EESM (MSc Electronic Eng.). Guangzhou-campus IOTA/MICS and ELBT excluded. Rows with d \\
+Tsinghua & partial & catalog\_html & 93 & 11 & 40 & no & slug=tsinghua. Department of Electronic Engineering only (not the Electrical Engineering dept EEA). UG: English curriculum, courses offered by the department. G \\
+ODTÜ (METU) & complete & catalog\_html & 78 & 0 & 112 & partial & slug=metu. Listing complete from the department All Courses page. catalog.metu.edu.tr and ects.metu.edu.tr time out from our host, so descriptions and "Level of \\
+Boğaziçi & complete & catalog\_html & 61 & 0 & 69 & partial & slug=bogazici. Department UG and graduate course pages (no year stated; footer 2025). Level by page membership. 3 courses added from Turkish curriculum/content  \\
+Bilkent & complete & catalog\_html & 44 & 0 & 38 & yes & slug=bilkent. Online Academic Catalog (regenerated 22 Oct 2026). Level by numbering convention (1xx-4xx UG, 5xx-6xx G); no published Bilkent rule found. Same-ti \\
+\end{longtable}
+
+\begin{longtable}{@{}lL{13cm}@{}}
+\caption{Course candidate patterns. Every candidate was then coded manually (Table~S7).}\label{tab:S6}\\
+\toprule
+Wave & Pattern (titles and descriptions, lower-cased, hyphens as spaces) \\
+\midrule
+\endfirsthead
+\toprule
+Wave & Pattern (titles and descriptions, lower-cased, hyphens as spaces) \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+AI hardware & \texttt{hardware \allowbreak(for\allowbreak|of) \allowbreak(machine learning\allowbreak|deep learning\allowbreak|ai\allowbreak|artificial intelligence\allowbreak|neural)} \\
+AI hardware & \texttt{\allowbreak(machine learning\allowbreak|deep learning\allowbreak|neural network\allowbreak|ai\allowbreak|dnn) \allowbreak(hardware\allowbreak|accelerat\allowbreak|processors?\allowbreak|chips?\allowbreak|systems? design)} \\
+AI hardware & \texttt{accelerat\textbackslash{}w* \allowbreak(for\allowbreak|of) \allowbreak(machine learning\allowbreak|deep learning\allowbreak|neural\allowbreak|ai)} \\
+AI hardware & \texttt{in memory comput} \\
+AI hardware & \texttt{compute in memory} \\
+AI hardware & \texttt{processing in memory} \\
+AI hardware & \texttt{memristor} \\
+AI hardware & \texttt{memristive} \\
+AI hardware & \texttt{\textbackslash{}brram\textbackslash{}b} \\
+AI hardware & \texttt{\textbackslash{}breram\textbackslash{}b} \\
+AI hardware & \texttt{neural processing unit} \\
+AI hardware & \texttt{\textbackslash{}btinyml\textbackslash{}b} \\
+AI hardware & \texttt{\textbackslash{}bsystolic} \\
+AI hardware & \texttt{\allowbreak(circuits?\allowbreak|chips?\allowbreak|hardware\allowbreak|vlsi\allowbreak|socs?\allowbreak|processors?\allowbreak|architectures?\allowbreak|systems?) for \allowbreak(ai\allowbreak|artificial intelligence\allowbreak|machine learning\allowbreak|deep learning\allowbreak|neural)} \\
+AI hardware & \texttt{\textbackslash{}b\allowbreak(ai\allowbreak|ml) \allowbreak(circuits?\allowbreak|chips?\allowbreak|vlsi\allowbreak|socs?\allowbreak|hardware\allowbreak|accelerators?\allowbreak|processors?)} \\
+AI hardware & \texttt{efficient \allowbreak(deep learning\allowbreak|machine learning\allowbreak|ml\allowbreak|ai\allowbreak|neural)} \\
+AI hardware & \texttt{neural networks? \allowbreak(implementation\allowbreak|hardware\allowbreak|chips?\allowbreak|circuits?\allowbreak|accelerat)} \\
+Neuromorphic & \texttt{neuromorphic} \\
+Neuromorphic & \texttt{spiking} \\
+Neuromorphic & \texttt{brain inspired} \\
+Neuromorphic & \texttt{synaptic \allowbreak(device\allowbreak|transistor)s?} \\
+Neuromorphic & \texttt{silicon neuron} \\
+IoT/HW security & \texttt{hardware security} \\
+IoT/HW security & \texttt{secure hardware} \\
+IoT/HW security & \texttt{side channel} \\
+IoT/HW security & \texttt{physical\allowbreak(ly)? unclonable} \\
+IoT/HW security & \texttt{\textbackslash{}bpufs?\textbackslash{}b} \\
+IoT/HW security & \texttt{hardware trojan} \\
+IoT/HW security & \texttt{trusted execution} \\
+IoT/HW security & \texttt{root of trust} \\
+IoT/HW security & \texttt{fault \allowbreak(injection\allowbreak|attack)} \\
+IoT/HW security & \texttt{trusted hardware} \\
+IoT/HW security & \texttt{hardware \allowbreak(attack\allowbreak|trust)} \\
+IoT/HW security & \texttt{embedded \allowbreak(system )?security} \\
+IoT/HW security & \texttt{security of \allowbreak(embedded\allowbreak|iot\allowbreak|cyber physical)} \\
+IoT/HW security & \texttt{tamper} \\
+IoT/HW security & \texttt{cryptographic \allowbreak(hardware\allowbreak|engineering)} \\
+IoT/HW security & \texttt{trusted computing} \\
+Quantum comp. eng. & \texttt{\textbackslash{}bqubits?\textbackslash{}b} \\
+Quantum comp. eng. & \texttt{quantum comput} \\
+Quantum comp. eng. & \texttt{quantum information} \\
+Quantum comp. eng. & \texttt{quantum engineering} \\
+Quantum comp. eng. & \texttt{quantum technolog} \\
+Quantum comp. eng. & \texttt{quantum hardware} \\
+Quantum comp. eng. & \texttt{quantum \allowbreak(circuit\allowbreak|algorithm\allowbreak|software\allowbreak|processor)s?} \\
+Quantum comp. eng. & \texttt{\textbackslash{}bnisq\textbackslash{}b} \\
+\end{longtable}
+
+\begin{longtable}{@{}llL{4.6cm}llll@{}}
+\caption{Course coding sheet (all candidates).}\label{tab:S7}\\
+\toprule
+Prog. & Code & Title & Level & Wave & Coding & Justification \\
+\midrule
+\endfirsthead
+\toprule
+Prog. & Code & Title & Level & Wave & Coding & Justification \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+cmu & 18-335 & Secure Software Systems & UG & IoT/HW security & false & software security \\
+cmu & 18-617 & Memory Devices and Technology & G & Neuromorphic & partial & memory devices incl. neuromorphic use \\
+cmu & 18-619 & Introduction to Quantum Computing & G & Quantum comp. eng. & dedicated & intro quantum computing \\
+cmu & 18-632 & Hardware Security & G & IoT/HW security & dedicated & hardware security \\
+cmu & 18-732 & Secure Software Systems & G & IoT/HW security & false & software security \\
+cmu & 18-742 & Computer Architecture and Systems & G & Neuromorphic & partial & computer architecture; neuromorphic mentioned \\
+cmu & 18-743 & Neuromorphic Computer Architecture \& Processor Design & G & AI hardware & partial & neuromorphic architecture; AI hardware aspects \\
+cmu & 18-743 & Neuromorphic Computer Architecture \& Processor Design & G & Neuromorphic & dedicated & neuromorphic computer architecture \\
+cmu & 18-819D & Special Topics in Applied Physics: Memory Devices and T & G & Neuromorphic & partial & memory devices incl. neuromorphic use \\
+cmu & 18-819E & Special Topics in Applied Physics: Elements of Quantum  & G & Quantum comp. eng. & false & quantum communication (excluded) \\
+cmu & 18-819F & Special topics in Applied Physics: Introduction to Quan & G & Quantum comp. eng. & dedicated & intro quantum computing \\
+cornell & ECE 1410 & How Machines Learn: AI from the Perceptron to GPT & UG & AI hardware & false & intro ML/AI algorithms; no hardware \\
+cornell & ECE 4060 & Quantum Physics and Engineering & UG & Quantum comp. eng. & false & quantum mechanics; no quantum-information topic \\
+cornell & ECE 4330 & Microwave Circuit Design & UG & Quantum comp. eng. & false & quantum computing only as an application of microwave c \\
+cornell & ECE 4370 & Photonics: Fundamentals and Devices & UG & Quantum comp. eng. & false & quantum technologies only as an application survey \\
+cornell & ECE 5330 & Quantum Physics and Engineering & G & Quantum comp. eng. & false & quantum mechanics; no QI topic \\
+cornell & ECE 5340 & Photonics: Fundamentals and Devices & G & Quantum comp. eng. & false & photonics \\
+cornell & ECE 5545 & Machine Learning Hardware and Systems & G & AI hardware & dedicated & ML hardware and systems \\
+cornell & ECE 5570 & Microwave Circuit Design & G & Quantum comp. eng. & false & microwave circuits \\
+cornell & ECE 5748 & Memory Technologies and Memory-Centric AI Computing & G & AI hardware & dedicated & memory-centric AI computing \\
+cornell & ECE 5765 & Building AI Infrastructure: From Chip to Grid & G & AI hardware & partial & AI infrastructure incl. accelerators \\
+cornell & ECE 6310 & Quantum Optics for Photonics and Optoelectronics & G & Quantum comp. eng. & false & quantum optics \\
+cornell & ECE 6760 & Memory Technologies and Memory-Centric AI Computing & G & AI hardware & dedicated & memory-centric AI computing \\
+cornell & ECE 6790 & Neuromorphic Computing Algorithm and Hardware Design & G & Neuromorphic & dedicated & neuromorphic algorithm and hardware design \\
+epfl & PHYS-344 & Quantum mechanics for non-physicists & UG & Quantum comp. eng. & false & quantum-mechanics foundation; quantum information not a \\
+epfl & CS-470 & Advanced computer architecture & G & IoT/HW security & partial & computer architecture; hardware security topic \\
+epfl & CS-471 & Advanced multiprocessor architecture & G & AI hardware & partial & multiprocessor architecture; accelerators topic \\
+epfl & EE-519 & Bioelectronics and biomedical microelectronics & G & Neuromorphic & false & bioelectronics \\
+epfl & QUANT-400 & Introduction to quantum science and technology & G & Quantum comp. eng. & dedicated & intro quantum science and technology \\
+epfl & MICRO-554 & Iontronics & G & Neuromorphic & partial & iontronics incl. neuromorphic devices \\
+epfl & EE-567 & Semiconductor devices II & G & Neuromorphic & partial & emerging devices incl. neuromorphic \\
+eth & 227-0085-05L & P\&S: FPGA in Quantum Computing with Superconducting Qub & UG & Quantum comp. eng. & dedicated & FPGA control of superconducting qubits (lab/project) \\
+eth & 227-0311-00L & Qubits, Electrons, Photons & UG/G & Quantum comp. eng. & partial & qubits as two-level systems within quantum physics cour \\
+eth & 227-2211-00L & Seminar in Computer Architecture & UG/G & AI hardware & partial & seminar: processing-in-memory and ML acceleration among \\
+eth & 227-2211-00L & Seminar in Computer Architecture & UG/G & IoT/HW security & partial & seminar: hardware security among topics \\
+eth & 227-0147-10L & VLSI 3: Full-Custom Digital Circuit Design & G & AI hardware & false & full-custom VLSI; no AI-hardware topic \\
+eth & 227-0421-00L & Learning in Deep Artificial and Biological Neuronal Net & G & Neuromorphic & false & learning in artificial/biological networks (theory) \\
+eth & 227-0579-00L & Hardware Security & G & IoT/HW security & dedicated & hardware security \\
+eth & 227-0621-00L & Emerging Memory Technologies & G & AI hardware & partial & emerging memories incl. in-memory computing \\
+eth & 227-0671-00L & Nanodevices and Circuits for the Beyond-Moore Era & G & Neuromorphic & partial & beyond-Moore devices incl. neuromorphic \\
+eth & 227-1033-00L & Neuromorphic Engineering I & G & Neuromorphic & dedicated & neuromorphic engineering I \\
+eth & 252-1414-00L & System Security & G & IoT/HW security & partial & hardware-based security support \\
+eth & 402-0209-00L & Quantum Physics for Non-Physicists & G & Quantum comp. eng. & partial & quantum physics via quantum-information approach \\
+eth & 227-0152-00L & Fundamentals of Computer Architecture & UG & AI hardware & partial & ML accelerators/systolic arrays named within computer a \\
+eth & 227-0395-00L & Neural Systems & UG/G & Neuromorphic & false & computational neuroscience, not neuromorphic computing \\
+eth & 227-0303-00L & Brain Inspired Computing: Bridging Device Physics to Re & G & AI hardware & partial & brain-inspired devices for AI hardware \\
+eth & 227-0303-00L & Brain Inspired Computing: Bridging Device Physics to Re & G & Neuromorphic & dedicated & brain-inspired computing devices \\
+eth & 227-0666-00L & Neuromorphic Electronics with Oxides: from Materials to & G & AI hardware & partial & oxide neuromorphic electronics for AI hardware \\
+eth & 227-0666-00L & Neuromorphic Electronics with Oxides: from Materials to & G & Neuromorphic & dedicated & neuromorphic electronics \\
+eth & 227-1032-00L & Neuromorphic Engineering II & G & Neuromorphic & dedicated & neuromorphic engineering II \\
+gatech & ECE 3170 & Cryptographic Hardware for Embedded Systems & UG & IoT/HW security & dedicated & cryptographic hardware incl. power-analysis attacks \\
+gatech & ECE 4156 & Hardware-Oriented Security and Trust & UG & IoT/HW security & dedicated & hardware-oriented security and trust \\
+gatech & ECE 6156 & Hardware-Oriented Security and Trust & G & IoT/HW security & dedicated & hardware-oriented security and trust \\
+gatech & ECE 6435 & Neuromorphic Analog VLSI Circuits & G & Neuromorphic & dedicated & neuromorphic analog VLSI \\
+gatech & ECE 6465 & Memory Device Technologies and Applications & G & AI hardware & partial & memory devices incl. compute-in-memory \\
+hkust & ELEC 1150 & Information Technology Revolution: Past, Present and Fu & UG & Quantum comp. eng. & false & general IT survey \\
+hkust & ELEC 3610 & Quantum Mechanics for Electronic Engineers & UG & Quantum comp. eng. & partial & QM for EE incl. quantum information processing \\
+hkust & ELEC 4350 & AI Processor Architecture & UG & AI hardware & dedicated & AI processor architecture \\
+hkust & ELEC 5150 & 21st Century Solid-State Devices: From Principles to Ap & G & AI hardware & partial & solid-state devices incl. memristive \\
+hkust & ELEC 5170 & Advanced AI Chips and Systems & G & AI hardware & dedicated & advanced AI chips and systems \\
+hkust & ELEC 5210 & Advanced Topics in Nanoelectronics & G & Quantum comp. eng. & partial & nanoelectronics incl. quantum information devices \\
+imperial & COMP70021 & Quantum computinng & G & Quantum comp. eng. & dedicated & quantum computing \\
+imperial & ELEC70001 & Adaptive Signal Processing and Machine Intelligence & G & AI hardware & false & adaptive signal processing/ML algorithms \\
+imperial & ELEC70110 & Neuroscience for Machine Learners & G & Neuromorphic & false & neuroscience for ML \\
+imperial & ELEC70125 & Quantum AI - Independent Study & G & Quantum comp. eng. & dedicated & quantum AI \\
+kaist & EE.40042 & Introduction to Integrated Photonics & UG & AI hardware & false & integrated photonics; AI only as motivation \\
+kaist & EE.40080 & Basics of Quantum Information and Quantum Computing & UG & Quantum comp. eng. & dedicated & quantum information and computing \\
+kaist & EE.49904(002) & Special Topics in Electronic Engineering 〈Hardware acce & UG & AI hardware & dedicated & hardware acceleration for ML (special topic) \\
+kaist & EE.49904(065) & Special Topics in Electronic Engineering 〈Ultra Large S & UG & Quantum comp. eng. & dedicated & quantum computing hardware and micro-architecture \\
+kaist & EE.49904(072) & Special Topics in Electrical Engineering 〈 Basics of Qu & UG & Quantum comp. eng. & dedicated & quantum information processing \\
+kaist & EE.50047 & Introduction to Quantum Information Processing & G & Quantum comp. eng. & dedicated & quantum information processing \\
+kaist & EE.50052 & Quantum Computing Algorithms and Applications & G & Quantum comp. eng. & dedicated & quantum computing algorithms \\
+kaist & EE.60018 & Advanced Computer Networking and Cloud Computing & G & AI hardware & false & networking/cloud \\
+kaist & EE.70061 & Semiconductor Memory Technology & G & AI hardware & partial & semiconductor memory incl. AI/PIM \\
+kaist & EE.89900(013) & Special Topics in Electrical Engineering 〈Quantum Infor & G & Quantum comp. eng. & dedicated & quantum information applications \\
+kaist & EE.89909(005) & Special Topics in Electromagnetics 〈Artificial Intellig & G & AI hardware & false & ML applied to electromagnetics \\
+kaist & EE.89910(011) & Special Topics in Optical Engineering 〈Device Engineeri & G & Quantum comp. eng. & dedicated & device engineering for quantum information \\
+kaist & EE.89914(006) & Special Topics in VLSI 〈Neuromorphic and PIM〉 & G & Neuromorphic & dedicated & neuromorphic and PIM \\
+kaist & EE.89914(021) & Special Topics in VLSI 〈Neuromorphic Semiconductor Devi & G & Neuromorphic & dedicated & neuromorphic devices and circuits \\
+kaist & EE.89914(022) & Special Topics in VLSI 〈Processing-In Memory and Artifi & G & AI hardware & dedicated & processing-in-memory and AI \\
+kaist & EE.89914(022) & Special Topics in VLSI 〈Processing-In Memory and Artifi & G & Neuromorphic & partial & PIM course with neuromorphic trends \\
+kth & FIL3030 & Hardware Security & G & IoT/HW security & dedicated & hardware security (PhD) \\
+kth & FID3025 & Architecting Efficient AI Hardware with technology and  & G & AI hardware & dedicated & efficient AI hardware (PhD) \\
+kth & IL2230 & Hardware Architectures for Deep Learning & G & AI hardware & dedicated & hardware architectures for deep learning \\
+kth & IL1333 & Hardware Security & UG & IoT/HW security & dedicated & hardware security: side channels, PUFs \\
+kth & FEO3340 & Quantum Information Theory & G & Quantum comp. eng. & dedicated & quantum information theory (PhD) \\
+metu & EE543 & NEUROCOMPUTERS AND DEEP LEARNING & G & Neuromorphic & partial & neurocomputers/brain-like computing among DL topics \\
+mit & 6.5430 & Quantum Complexity Theory & G & Quantum comp. eng. & dedicated & quantum complexity theory \\
+mit & 6.1600 & Foundations of Computer Security & UG & IoT/HW security & partial & side-channel attacks among computer-security topics \\
+mit & 6.5660 & Computer Systems Security & G & IoT/HW security & partial & systems security incl. hardware attacks \\
+mit & 6.5930 & Hardware Architecture for Deep Learning & G & AI hardware & dedicated & hardware architecture for deep learning \\
+mit & 6.5931 & Hardware Architecture for Deep Learning & UG & AI hardware & dedicated & hardware architecture for deep learning \\
+mit & 6.5940 & TinyML and Efficient Deep Learning Computing & G & AI hardware & dedicated & TinyML and efficient DL computing \\
+mit & 6.5950 & Secure Hardware Design & G & IoT/HW security & dedicated & secure hardware design \\
+mit & 6.5951 & Secure Hardware Design & UG & IoT/HW security & dedicated & secure hardware design \\
+mit & 6.2400 & Introduction to Quantum Systems Engineering & UG & Quantum comp. eng. & dedicated & quantum systems engineering: qubits, gates \\
+mit & 6.2410 & Quantum Engineering Platforms & UG & Quantum comp. eng. & dedicated & quantum engineering platforms lab \\
+mit & 6.6410[J] & Quantum Computation & G & Quantum comp. eng. & dedicated & quantum computation \\
+mit & 6.6420[J] & Quantum Information Science & G & Quantum comp. eng. & dedicated & quantum information science \\
+mit & 6.6450[J] & Physics and Engineering of Superconducting Qubits & G & Quantum comp. eng. & dedicated & superconducting qubits \\
+mit & 6.6460[J] & Global Business of Quantum Computing & G & Quantum comp. eng. & partial & business of quantum computing \\
+mit & 6.8120 & Tissues vs. Silicon in Machine Learning & G & AI hardware & partial & brain circuits and ML hardware \\
+ntu & EE6316 & INTEGRATED CIRCUITS FOR AI & UG/G & AI hardware & dedicated & integrated circuits for AI \\
+ntu & EE6316 & INTEGRATED CIRCUITS FOR AI & UG/G & Neuromorphic & partial & ICs for AI course; neuromorphic circuits as a topic \\
+ntu & EE6317 & CHIP SECURITY WITH MACHINE LEARNING & G & IoT/HW security & dedicated & chip security with ML \\
+ntu & EE6488 & QUANTUM ALGORITHM \& QUANTUM MACHINE LEARNING & G & Quantum comp. eng. & dedicated & quantum algorithms and QML \\
+ntu & EE6618 & QUANTUM INFORMATION \& ENGINEERING & G & Quantum comp. eng. & dedicated & quantum information and engineering \\
+nus & CEG5106 & Quantum Computing and Communication & G & Quantum comp. eng. & dedicated & quantum computing and communication \\
+nus & EE4205 & Quantum Computing and Communication & UG & Quantum comp. eng. & dedicated & quantum computing and communication \\
+nus & EE4206 & Introduction to Quantum Technologies & UG & Quantum comp. eng. & dedicated & quantum technologies incl. computing hardware \\
+nus & EE5140 & Quantum Computing and Communication & G & Quantum comp. eng. & dedicated & quantum computing and communication \\
+oxford & B18 & Biomedical Modelling and Monitoring & UG & AI hardware & false & biomedical modelling \\
+oxford & C30 & Introduction to Quantum Engineering & G & Quantum comp. eng. & dedicated & intro quantum engineering (final MEng year, coded G) \\
+purdue & ECE 30653 & Introduction To Nanotechnology And Quantum Science \& Te & UG & Quantum comp. eng. & partial & intro nanotechnology and quantum S\&T \\
+purdue & ECE 50435 & Introduction To Quantum Science And Technology & UG/G & Quantum comp. eng. & dedicated & intro quantum science and technology for engineers \\
+purdue & ECE 50633 & Boltzmann Law: Physics To Computing & UG/G & Quantum comp. eng. & false & statistical mechanics/Boltzmann machines; not quantum c \\
+purdue & ECE 50650 & Applied Quantum Computing I - Fundamentals & UG/G & Quantum comp. eng. & dedicated & applied quantum computing I \\
+purdue & ECE 50651 & Applied Quantum Computing II - Hardware & UG/G & Quantum comp. eng. & dedicated & applied quantum computing II: hardware \\
+purdue & ECE 50652 & Applied Quantum Computing III - Software and Algorithm & UG/G & Quantum comp. eng. & dedicated & applied quantum computing III: software/algorithms \\
+purdue & ECE 56401 & Computer Security & UG/G & IoT/HW security & false & computer security (policies, software) \\
+purdue & ECE 60827 & Programmable Accelerator Architectures & G & AI hardware & dedicated & programmable accelerator architectures \\
+stanford & EE 207 & Neuromorphics: Brains in Silicon (BIOE 313) & G & Neuromorphic & dedicated & neuromorphics: brains in silicon \\
+stanford & EE 223 & Applied Quantum Mechanics II & G & Quantum comp. eng. & false & applied quantum mechanics \\
+stanford & EE 224 & Quantum Control and Engineering & G & Quantum comp. eng. & dedicated & quantum control and engineering \\
+stanford & EE 244 & Hardware Accelerators for Machine Learning (CS 217) & UG & AI hardware & dedicated & hardware accelerators for ML \\
+stanford & EE 292A & Electronic Design Automation (EDA) and Machine Learning & G & AI hardware & dedicated & EDA and ML hardware \\
+stanford & EE 292J & Designing for Authenticity & G & IoT/HW security & false & digital authenticity/web \\
+stanford & EE 309A & Semiconductor Memory Devices and Circuit Design & G & AI hardware & partial & memory circuit design incl. compute-in-memory \\
+stanford & EE 309B & Emerging Non-Volatile Memory Devices and Circuit Design & G & AI hardware & partial & emerging NVM incl. in-memory computing \\
+stanford & EE 332 & Laser Dynamics & G & Neuromorphic & false & laser spiking dynamics \\
+stanford & EE 339 & Efficient ML Inference at Scale (CS 349E) & G & AI hardware & partial & ML inference systems at scale \\
+stanford & EE 349 & Software Techniques for Emerging Hardware Platforms (CS & G & AI hardware & partial & software for emerging hardware incl. AI accelerators \\
+stanford & EE 349 & Software Techniques for Emerging Hardware Platforms (CS & G & Neuromorphic & partial & software for emerging hardware incl. neuromorphic \\
+tamu & ECEN 426 & Security of Embedded Systems & UG & IoT/HW security & dedicated & security of embedded systems \\
+tamu & ECEN 428 & Field Programmable Gate Arrays Information Processing S & UG & AI hardware & partial & neural-network implementation on FPGA among topics \\
+tamu & ECEN 466 & Unconditionally Secure Electronics & UG & IoT/HW security & partial & noise-based secure key exchange; not PUF/side-channel c \\
+tamu & ECEN 674/PHYS 674 & Introduction to Quantum Computing & G & Quantum comp. eng. & dedicated & intro quantum computing \\
+tamu & ECEN 722 & Field Programmable Gate Arrays Information Processing S & G & AI hardware & partial & NN implementation on FPGA among topics \\
+tamu & ECEN 726 & Neuromorphic In-Memory-Computing with Memristors & G & AI hardware & dedicated & neuromorphic in-memory computing with memristors \\
+tamu & ECEN 726 & Neuromorphic In-Memory-Computing with Memristors & G & Neuromorphic & dedicated & neuromorphic in-memory computing with memristors \\
+tamu & ECEN 759/CYBR 630 & Hardware Security & G & IoT/HW security & dedicated & hardware security \\
+tamu & ECEN 771 & Fluctuations and Noise Electronics & G & Quantum comp. eng. & false & noise electronics \\
+tamu & ECEN 776 & Unconditionally Secure Electronics & G & IoT/HW security & partial & noise-based secure key exchange \\
+tsinghua & 40260012 & Introduction to Quantum Information Science & UG & Quantum comp. eng. & dedicated & quantum information science \\
+tudelft & AP3433 & Theoretical Concepts of Quantum Hardware & G & Quantum comp. eng. & dedicated & quantum hardware theory \\
+tudelft & AP3443 & Experimental State-of-the-Art in Quantum Hardware & G & Quantum comp. eng. & dedicated & quantum hardware experiments \\
+tudelft & EE4695 & Hardware Dependability & G & IoT/HW security & partial & hardware dependability incl. security \\
+tudelft & EE4705 & Solid State Physics & G & Quantum comp. eng. & false & solid-state physics \\
+tudelft & EE4710 & Solid State Physics with Quantum and Nano Electronics & G & Quantum comp. eng. & false & solid-state/nano electronics \\
+tudelft & QIST4310 & Fundamentals of Quantum Information & G & Quantum comp. eng. & dedicated & fundamentals of quantum information \\
+tudelft & QIST4400 & Quantum Computer Architecture & G & Quantum comp. eng. & dedicated & quantum computer architecture \\
+ucsd & ECE 226 & Optimization and Acceleration of Deep Learning on Vario & G & AI hardware & dedicated & acceleration of deep learning on hardware \\
+ucsd & ECE 268 & Security of Hardware Embedded Systems & G & IoT/HW security & dedicated & security of hardware embedded systems \\
+uiuc & ECE 305 & Quantum Systems I & UG & Quantum comp. eng. & dedicated & quantum systems I: qubits, quantum information \\
+uiuc & ECE 404 & Quantum Information Theory & UG/G & Quantum comp. eng. & dedicated & quantum information theory \\
+uiuc & ECE 405 & Quantum Systems II & UG/G & Quantum comp. eng. & dedicated & quantum systems II: qubit platforms \\
+uiuc & ECE 406 & Quantum Optics and Devices & UG/G & Quantum comp. eng. & partial & quantum optics and devices for quantum technologies \\
+uiuc & ECE 422 & Computer Security I & UG/G & IoT/HW security & false & computer/communications security (software) \\
+uiuc & ECE 423 & VLSI in Machine Learning & UG/G & AI hardware & dedicated & VLSI for machine learning \\
+uiuc & ECE 442 & Silicon Photonics & UG/G & Quantum comp. eng. & false & silicon photonics \\
+uiuc & ECE 524 & Advanced Computer Security & G & IoT/HW security & partial & tamper-resistance among security topics \\
+uiuc & ECE 549 & Computer Vision & G & AI hardware & false & computer vision \\
+umd & ENEE435 & Quantum Information Processing & UG/G & Quantum comp. eng. & dedicated & quantum information processing \\
+umd & ENEE491 & Quantum Phenomena in Electrical Engineering & UG/G & Quantum comp. eng. & partial & quantum phenomena incl. simple quantum circuits \\
+umd & ENEE492 & Introduction to Quantum Technology & UG/G & Quantum comp. eng. & dedicated & quantum technology: qubits and platforms \\
+umd & ENEE493 & Quantum Hardware Laboratory & UG/G & Quantum comp. eng. & dedicated & quantum hardware laboratory \\
+umd & ENEE657 & Computer Security & G & IoT/HW security & partial & computer security incl. hardware topics \\
+utaustin & ECE X82C.10 & Unconventional Computation & G & Quantum comp. eng. & partial & unconventional computation incl. quantum \\
+utaustin & ECE X82N.26 & Machine Learning Hardware-Algorithm Codesign & G & AI hardware & dedicated & ML hardware-algorithm codesign \\
+utaustin & ECE X96M.2 & Quantum Information Hardware & G & Quantum comp. eng. & dedicated & quantum information hardware \\
+\end{longtable}
+
+\begin{longtable}{@{}lL{14cm}@{}}
+\caption{All \emph{IEEE Trans.\ Education} titles 2015--2025 containing security, ML, neural, hardware, or quantum terms.}\label{tab:S8}\\
+\toprule
+Year & Title \\
+\midrule
+\endfirsthead
+\toprule
+Year & Title \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+2015 & An iLab for Teaching Advanced Logic Concepts With Hardware Descriptive Languages \\
+2016 & Experiential Learning of Robotics Fundamentals Based on a Case Study of Robot-Assisted Stereotactic Neurosurgery \\
+2016 & Teaching Network Security With IP Darkspace Data \\
+2017 & Teaching Game Theory to Improve Adversarial Thinking in Cybersecurity Students \\
+2018 & Identifying Core Concepts of Cybersecurity: Results of Two Delphi Processes \\
+2018 & Particle in a Box: An Experiential Environment for Learning Introductory Quantum Mechanics \\
+2019 & Cybersecurity Interventions for Teens: Two Time-Based Approaches \\
+2019 & Integrating Model-Based Approaches Into a Neuroscience Curriculum—An Interdisciplinary Neuroscience Course in Engineerin \\
+2021 & Application of Open-Hardware-Based Solutions for Rapid Transition From Stationary to the Remote Teaching Model During Pa \\
+2021 & Examining Successful Attributes for Undergraduate Students by Applying Machine Learning Techniques \\
+2022 & A Computer Science-Oriented Approach to Introduce Quantum Computing to a New Audience \\
+2022 & A Study of Cybersecurity Education Using a Present-Test-Practice-Assess Model \\
+2022 & Assessing the Needs of the Quantum Industry \\
+2022 & Building a Quantum Engineering Undergraduate Program \\
+2022 & Creation and Evaluation of a Pretertiary Artificial Intelligence (AI) Curriculum \\
+2022 & Orchestrating Learning Together and Development of Team-Trust in Neurologically Typical and Neurologically Atypical Stud \\
+2023 & A Systematic Literature Review on Cyber Security Education for Children \\
+2023 & Knowledge-Based Recommendation for Subject Allocation Using Artificial Neural Network in Higher Education \\
+2023 & What Is Common to Transportation and Health in Machine Learning Education? The Domain Neglect Bias \\
+2024 & A Systematic Analysis of the Gap Between Academia and Industry Perspectives on Machine Learning Applications in Safety-C \\
+2024 & Applying Competition-Based Learning to Stimulate Students’ Practical and Competitive AI Ability in a Machine Learning Cu \\
+2024 & Cybersecurity Education in the Age of Artificial Intelligence: A Novel Proactive and Collaborative Learning Paradigm \\
+2024 & Empowering STEAM Activities With Artificial Intelligence and Open Hardware: The BitDogLab \\
+2024 & Framework for Adoption of Generative Artificial Intelligence (GenAI) in Education \\
+2024 & IC-BTCN: A Deep Learning Model for Dropout Prediction of MOOCs Students \\
+2024 & Teaching Machine Learning as Part of Agile Software Engineering \\
+2024 & Understanding Cybersecurity Education Gaps in Europe \\
+2024 & Using Game-Based Learning and Quantum Computing to Enhance STEAM Competencies in K-16 Education \\
+2025 & Blockchain Integration for Practical Cybersecurity Education With Scalable Cyber Infrastructure \\
+2025 & Diagnosing Cognitive Proficiency of Students Using Dense Neural Networks for Adaptive Assistance \\
+2025 & Education Software Development for Undergraduate Exposition on the Use of Quantum Fourier Transforms in Signal Analysis \\
+2025 & Fostering Engineering Troubleshooting Proficiency: A Real-World Scenario-Based Electrical Training Hardware Using Embedd \\
+2025 & Teaching Machine Learning as Part of Agile Software Engineering \\
+2025 & The Impact of Artificial Intelligence on Learning and Teaching of Engineering \\
+2025 & The Impact of Security Mindset on the Use of AI Assistants in Computing Education \\
+\end{longtable}
+
+\begin{longtable}{@{}lL{8cm}rr@{}}
+\caption{Topic groups in 2021--2025 classified titles (a-priori term lists in the code); input to module content.}\label{tab:S9}\\
+\toprule
+Wave & Topic group & Titles & \% \\
+\midrule
+\endfirsthead
+\toprule
+Wave & Topic group & Titles & \% \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+AI hardware & RRAM/memristor crossbars & 225 & 24.3 \\
+AI hardware & CNN/DNN inference & 189 & 20.4 \\
+AI hardware & energy efficiency & 157 & 16.9 \\
+AI hardware & quantization / low precision & 142 & 15.3 \\
+AI hardware & sparsity / pruning & 86 & 9.3 \\
+AI hardware & SRAM compute-in-memory macros & 80 & 8.6 \\
+AI hardware & edge / TinyML & 73 & 7.9 \\
+AI hardware & on-device training / learning & 59 & 6.4 \\
+AI hardware & ADC / analog readout & 58 & 6.3 \\
+AI hardware & FPGA accelerators & 45 & 4.9 \\
+AI hardware & transformers / attention & 43 & 4.6 \\
+AI hardware & dataflow / systolic & 32 & 3.5 \\
+IoT/HW security & PUF design (SRAM, ring-oscillator, arbiter) & 201 & 51.9 \\
+IoT/HW security & power / EM side-channel analysis & 109 & 28.2 \\
+IoT/HW security & authentication protocols (IoT) & 59 & 15.2 \\
+IoT/HW security & countermeasures (masking, shuffling) & 40 & 10.3 \\
+IoT/HW security & logic locking / obfuscation & 38 & 9.8 \\
+IoT/HW security & ML modelling attacks on PUFs & 35 & 9.0 \\
+IoT/HW security & hardware Trojans & 35 & 9.0 \\
+IoT/HW security & emerging-device PUFs (RRAM, MRAM) & 18 & 4.7 \\
+IoT/HW security & FPGA implementation & 13 & 3.4 \\
+IoT/HW security & TRNG / key generation & 12 & 3.1 \\
+Neuromorphic & synaptic devices (transistors, memristors) & 199 & 27.8 \\
+Neuromorphic & neuromorphic processors / chips & 108 & 15.1 \\
+Neuromorphic & spiking neuron circuits (LIF) & 98 & 13.7 \\
+Neuromorphic & SNN training algorithms & 93 & 13.0 \\
+Neuromorphic & energy efficiency & 79 & 11.0 \\
+Neuromorphic & event-based vision & 56 & 7.8 \\
+Neuromorphic & optoelectronic / photonic & 55 & 7.7 \\
+Neuromorphic & STDP / plasticity & 53 & 7.4 \\
+Neuromorphic & FPGA implementation & 16 & 2.2 \\
+Neuromorphic & reservoir computing & 7 & 1.0 \\
+Quantum comp. eng. & quantum algorithms (VQE, QAOA, annealing) & 98 & 27.7 \\
+Quantum comp. eng. & quantum machine learning & 73 & 20.6 \\
+Quantum comp. eng. & quantum circuits / compilation / mapping & 63 & 17.8 \\
+Quantum comp. eng. & applications (optimisation, finance, comms) & 55 & 15.5 \\
+Quantum comp. eng. & cryo-CMOS control and readout electronics & 54 & 15.3 \\
+Quantum comp. eng. & spin and superconducting qubits (devices) & 35 & 9.9 \\
+Quantum comp. eng. & noise / NISQ benchmarking & 27 & 7.6 \\
+Quantum comp. eng. & error correction / mitigation & 23 & 6.5 \\
+Quantum comp. eng. & software stacks / programming & 10 & 2.8 \\
+\end{longtable}
+
+\begin{longtable}{@{}llll@{}}
+\caption{Reference implementations: dedicated undergraduate-accessible courses per programme and wave, and graduate neuromorphic courses.}\label{tab:S10}\\
+\toprule
+Programme & Wave & Level & Course codes \\
+\midrule
+\endfirsthead
+\toprule
+Programme & Wave & Level & Course codes \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+ETH Zürich & Quantum comp. eng. & UG & 227-0085-05L \\
+Georgia Tech & IoT/HW security & UG & ECE 3170 ECE 4156 \\
+HKUST & AI hardware & UG & ELEC 4350 \\
+KAIST & AI hardware & UG & EE.49904(002) \\
+KAIST & Quantum comp. eng. & UG & EE.40080 EE.49904(065) EE.49904(072) \\
+KTH & IoT/HW security & UG & IL1333 \\
+MIT & AI hardware & UG & 6.5931 \\
+MIT & IoT/HW security & UG & 6.5951 \\
+MIT & Quantum comp. eng. & UG & 6.2400 6.2410 \\
+NUS & Quantum comp. eng. & UG & EE4205 EE4206 \\
+Purdue & Quantum comp. eng. & UG & ECE 50435 ECE 50650 ECE 50651 ECE 50652 \\
+Stanford & AI hardware & UG & EE 244 \\
+Texas A\&M & IoT/HW security & UG & ECEN 426 \\
+UIUC & AI hardware & UG & ECE 423 \\
+UIUC & Quantum comp. eng. & UG & ECE 305 ECE 404 ECE 405 \\
+UMD College Park & Quantum comp. eng. & UG & ENEE435 ENEE492 ENEE493 \\
+Carnegie Mellon University & Neuromorphic & G & 18-743 Neuromorphic Computer Architecture \& Processo \\
+Cornell & Neuromorphic & G & ECE 6790 Neuromorphic Computing Algorithm and Hardware \\
+ETH Zurich & Neuromorphic & G & 227-1033-00L Neuromorphic Engineering I \\
+ETH Zurich & Neuromorphic & G & 227-0303-00L Brain Inspired Computing: Bridging Device Phy \\
+ETH Zurich & Neuromorphic & G & 227-0666-00L Neuromorphic Electronics with Oxides: from Ma \\
+ETH Zurich & Neuromorphic & G & 227-1032-00L Neuromorphic Engineering II \\
+Georgia Tech & Neuromorphic & G & ECE 6435 Neuromorphic Analog VLSI Circuits \\
+Korea Advanced Institute of Sc & Neuromorphic & G & EE.89914(006) Special Topics in VLSI 〈Neuromorphic and PIM〉 \\
+Korea Advanced Institute of Sc & Neuromorphic & G & EE.89914(021) Special Topics in VLSI 〈Neuromorphic Semicond \\
+Stanford University & Neuromorphic & G & EE 207 Neuromorphics: Brains in Silicon (BIOE 313) \\
+Texas A\&M University & Neuromorphic & G & ECEN 726 Neuromorphic In-Memory-Computing with Memrist \\
+\end{longtable}
+\end{document}

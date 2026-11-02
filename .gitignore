@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+raw/
+run_out/
+*.aux
+*.log

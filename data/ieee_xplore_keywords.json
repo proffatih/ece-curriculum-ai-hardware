@@ -1,0 +1,103 @@
+{
+  "_meta": {
+    "purpose": "EDU01 — bibliometric search terms for 4 'new-century' ECE waves",
+    "year_range": [2015, 2025],
+    "notes": "Crossref query.bibliographic supports phrase-style matching; multi-word terms are quoted in queries. Each wave's hits are aggregated yearly.",
+    "ieee_journals_issn_pool": {
+      "TCAS-I":   "1549-8328",
+      "TCAS-II":  "1549-7747",
+      "TVLSI":    "1063-8210",
+      "TED":      "0018-9383",
+      "EDL":      "0741-3106",
+      "JSSC":     "0018-9200",
+      "IoT-J":    "2327-4662",
+      "T-NANO":   "1536-125X",
+      "TNNLS":    "2162-237X",
+      "T-EDUC":   "0018-9359",
+      "ACCESS":   "2169-3536",
+      "JETCAS":   "2156-3357",
+      "T-QE":     "2689-1808"
+    }
+  },
+  "waves": {
+    "ai_hardware": {
+      "label": "AI Hardware Accelerators",
+      "color": "#1f77b4",
+      "queries": [
+        "memristor crossbar",
+        "in-memory computing",
+        "neural processing unit",
+        "AI accelerator chip",
+        "compute-in-memory",
+        "RRAM neural network"
+      ],
+      "catalog_queries": [
+        "memristor",
+        "RRAM",
+        "in-memory comput",
+        "neural processing",
+        "AI accelerat",
+        "deep learning hardware",
+        "ML hardware",
+        "hardware for machine learning"
+      ]
+    },
+    "neuromorphic": {
+      "label": "Neuromorphic Computing",
+      "color": "#ff7f0e",
+      "queries": [
+        "neuromorphic computing",
+        "spiking neural network hardware",
+        "synaptic device",
+        "memristive synapse",
+        "brain-inspired computing"
+      ],
+      "catalog_queries": [
+        "neuromorphic",
+        "spiking neural",
+        "synaptic device",
+        "brain-inspired",
+        "bio-inspired comput"
+      ]
+    },
+    "iot_security": {
+      "label": "IoT Hardware Security",
+      "color": "#2ca02c",
+      "queries": [
+        "physical unclonable function",
+        "PUF authentication",
+        "side-channel attack hardware",
+        "IoT hardware security",
+        "hardware root of trust"
+      ],
+      "catalog_queries": [
+        "physical unclonable",
+        " PUF",
+        "side-channel",
+        "hardware security",
+        "hardware trojan",
+        "trusted execution",
+        "secure hardware"
+      ]
+    },
+    "quantum_hw": {
+      "label": "Quantum Hardware",
+      "color": "#d62728",
+      "queries": [
+        "superconducting qubit",
+        "NISQ device",
+        "quantum processor",
+        "transmon qubit",
+        "quantum error correction hardware"
+      ],
+      "catalog_queries": [
+        "qubit",
+        "quantum comput",
+        "quantum information",
+        "quantum hardware",
+        "quantum circuit",
+        "NISQ"
+      ]
+    }
+  }
+}

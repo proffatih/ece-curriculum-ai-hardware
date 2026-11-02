@@ -1,0 +1,121 @@
+wave,doi,year,journal,title,should_match(1/0),note
+ai_hardware,10.1109/ted.2025.3578013,2025,TED,High [ dV / dt ] Accelerated Hot Carrier-Induced Degradation in Power LDMOS Devices Under Repetitive Switching Stress,0,
+ai_hardware,10.1109/access.2021.3071397,2021,ACCESS,An Accelerated Nonlinear Contrast Source Inversion Scheme for Sparse Electromagnetic Imaging,0,
+ai_hardware,10.1109/ted.2015.2471835,2015,TED,Mechanism of Nonlinear Switching in HfO 2 -Based Crossbar RRAM With Inserting Large Bandgap Tunneling Barrier Layer,0,
+ai_hardware,10.1109/led.2024.3435540,2024,EDL,Single-Step Extraction of Transformer Attention With Dual-Gated Memtransistor Crossbars,1,memtransistor crossbar attention extraction
+ai_hardware,10.1109/access.2022.3143804,2022,ACCESS,Efficient Homomorphic Encryption Accelerator With Integrated PRNG Using Low-Cost FPGA,0,
+ai_hardware,10.1109/jetcas.2022.3167391,2022,JETCAS,ADC-PIM: Accelerating Convolution on the GPU via In-Memory Approximate Data Comparison,1,PIM for convolution
+ai_hardware,10.1109/jetcas.2015.2398217,2015,JETCAS,A Complementary Resistive Switch-Based Crossbar Array Adder,0,
+ai_hardware,10.1109/tcsi.2023.3334267,2024,TCAS-I,Full-Analog Reservoir Computing Circuit Based on Memristor With a Hybrid Wide-Deep Architecture,1,memristor reservoir computing
+ai_hardware,10.1109/jiot.2024.3427686,2024,IoT-J,Accelerating Communication for UAV-Enabled Federated Learning With Adaptive Routing and Robust Aggregation Over Edge Networks,0,
+ai_hardware,10.1109/access.2020.2976879,2020,ACCESS,A Real-Time Naive Bayes Classifier Accelerator on FPGA,1,FPGA ML classifier accelerator
+ai_hardware,10.1109/access.2020.3013621,2020,ACCESS,Accelerating the Training Process of Convolutional Neural Networks for Image Classification by Dropping Training Samples Out,0,
+ai_hardware,10.1109/access.2020.3001194,2020,ACCESS,Grey Prediction Evolution Algorithm Based on Accelerated Even Grey Model,0,
+ai_hardware,10.1109/access.2025.3528829,2025,ACCESS,Accelerating Multilingual Cryptocurrency Forensics: An NLP-Driven Approach for Efficient Mnemonic Identification,0,
+ai_hardware,10.1109/tcsii.2019.2936453,2020,TCAS-II,"A Simple Floating Mutator for Emulating Memristor, Memcapacitor, and Meminductor",0,
+ai_hardware,10.1109/tcsii.2021.3068126,2021,TCAS-II,Energy Efficient In-Memory Hyperdimensional Encoding for Spatio-Temporal Signal Processing,1,in-memory hyperdimensional computing
+ai_hardware,10.1109/access.2021.3052099,2021,ACCESS,On-Board Detection of Longitudinal Track Irregularity Via Axle Box Acceleration in HSR,0,
+ai_hardware,10.1109/tcsi.2020.3027693,2021,TCAS-I,High-Density Memristor-CMOS Ternary Logic Family,0,
+ai_hardware,10.1109/ted.2021.3118996,2021,TED,A Drift-Resilient Hardware Implementation of Neural Accelerators Based on Phase Change Memory Devices,1,PCM neural accelerators
+ai_hardware,10.1109/access.2018.2866930,2018,ACCESS,Universal and Convenient Optimization Strategies for Three-Terminal Memristors,0,
+ai_hardware,10.1109/tcsii.2021.3072393,2021,TCAS-II,Memristor-Coupled Logistic Hyperchaotic Map,0,
+ai_hardware,10.1109/jiot.2025.3617148,2025,IoT-J,Accelerating RFID Tag Counting for Low-Latency and High-Reliability Applications,0,
+ai_hardware,10.1109/ted.2021.3103490,2021,TED,Harmonic Analysis of the Nonlinear Response of Graphene Oxide-Based Memristors,0,
+ai_hardware,10.1109/tcsi.2024.3365175,2024,TCAS-I,KERNTROL: Kernel Shape Control Toward Ultimate Memory Utilization for In-Memory Convolutional Weight Mapping,1,in-memory CNN weight mapping
+ai_hardware,10.1109/jiot.2019.2963245,2020,IoT-J,A Highly Parallelized PIM-Based Accelerator for Transaction-Based Blockchain in IoT Environment,0,
+ai_hardware,10.1109/tnnls.2025.3563155,2025,TNNLS,Online Reinforcement Learning Control Designs With Acceleration Mechanism for Unknown Multiagent Systems Through Value Iteration,0,
+ai_hardware,10.1109/tvlsi.2019.2947639,2020,TVLSI,POLAR: A Pipelined/Overlapped FPGA-Based LSTM Accelerator,1,FPGA LSTM accelerator
+ai_hardware,10.1109/tcsii.2018.2869920,2019,TCAS-II,A Complete Analytical Solution for the On and Off Dynamic Equations of a TaO Memristor,0,
+ai_hardware,10.1109/access.2023.3272564,2023,ACCESS,ORSAS: An Output Row-Stationary Accelerator for Sparse Neural Networks,1,sparse NN accelerator
+ai_hardware,10.1109/jssc.2014.2384039,2015,JSSC,"340 mV-1.1 V, 289 Gbps/W, 2090-Gate NanoAES Hardware Accelerator With Area-Optimized Encrypt/Decrypt GF(2 4 ) 2 Polynomials in 22 nm Tri-Gate CMOS",0,
+ai_hardware,10.1109/tvlsi.2023.3341037,2024,TVLSI,TINA: TMVP-Initiated Novel Accelerator for Lightweight Ring-LWE-Based PQC,0,
+neuromorphic,10.1109/tnnls.2024.3373599,2025,TNNLS,Adaptive Synaptic Scaling in Spiking Networks for Continual Learning and Enhanced Robustness,1,spiking networks
+neuromorphic,10.1109/ted.2025.3581894,2025,TED,Synaptic Characteristics Dependent on Gate-Insulator Structural Properties of Low-Power Hf-ZnO Thin-Film Transistors,1,synaptic TFT
+neuromorphic,10.1109/access.2022.3144932,2022,ACCESS,NeSyChair: Automatic Conference Scheduling Combining Neuro-Symbolic Representations and Constrained Clustering,0,
+neuromorphic,10.1109/led.2023.3329568,2023,EDL,Bimodal Bioinspired Sensory Neuron With Tactile and Visual Perceptual Capabilities,1,artificial sensory neuron
+neuromorphic,10.1109/tcsi.2016.2613503,2017,TCAS-I,Analysis of Encoding Degradation in Spiking Sensors Due to Spike Delay Variation,1,spiking sensors
+neuromorphic,10.1109/access.2024.3444596,2024,ACCESS,Temporally Dynamic Spiking Transformer Network for Speech Enhancement,1,spiking transformer
+neuromorphic,10.1109/jiot.2025.3574180,2025,IoT-J,NexusNet: Lightweight Graph Modeling for Motor-Imagery-Based Brain-Computer Interfaces,0,
+neuromorphic,10.1109/tnnls.2023.3308712,2024,TNNLS,Medical Transformer: Universal Encoder for 3-D Brain MRI Analysis,0,
+neuromorphic,10.1109/access.2019.2938067,2019,ACCESS,Neuroadaptive Distributed Output Feedback Tracking Control for Multiple Marine Surface Vessels With Input and Output Constraints,0,
+neuromorphic,10.1109/led.2025.3608862,2025,EDL,Stable Synapse Function of Bilayer Stretchable Memristor via Atomic Layer Deposition,1,memristor synapse
+neuromorphic,10.1109/access.2024.3377105,2024,ACCESS,Improved Classification of Different Brain Tumors in MRI Scans Using Patterned-GridMask,0,
+neuromorphic,10.1109/access.2020.3036692,2020,ACCESS,Machine Learning Application With Quantitative Digital Subtraction Angiography for Detection of Hemorrhagic Brain Arteriovenous Malformations,0,
+neuromorphic,10.1109/access.2023.3239212,2023,ACCESS,High Performance Time Series Anomaly Detection Using Brain Inspired Cortical Coding Method,0,
+neuromorphic,10.1109/tnnls.2021.3061122,2023,TNNLS,Asynchronous Spatiotemporal Spike Metric for Event Cameras,1,event-camera spike metric
+neuromorphic,10.1109/tnnls.2025.3569650,2025,TNNLS,A Novel Dynamic Neural Network for Heterogeneity-Aware Structural Brain Network Exploration and Alzheimer’s Disease Diagnosis,0,
+neuromorphic,10.1109/access.2025.3596612,2025,ACCESS,Finite-Time and Fixed-Time Synchronization of Coupled Chaotic HR Neurons With Chemical and Electrical Autapses: Sensitivity Analysis and Control Design,0,
+neuromorphic,10.1109/led.2023.3347559,2024,EDL,Bidirectional Photoelectric Response of Perovskite Oxide-Based Synaptic ReRAM Device,1,synaptic ReRAM
+neuromorphic,10.1109/tcsii.2021.3063932,2021,TCAS-II,A Novel Hardware-Oriented Recurrent Network of Asynchronous CA Neurons for a Neural Integrator,1,hardware CA neurons
+neuromorphic,10.1109/access.2021.3140046,2022,ACCESS,An Optimized Neuro-Bee Algorithm Approach to Predict the FRP-Concrete Bond Strength of RC Beams,0,
+neuromorphic,10.1109/access.2025.3581234,2025,ACCESS,STAR-YOLO: A High-Accuracy and Ultra-Lightweight Method for Brain Tumor Detection,0,
+neuromorphic,10.1109/access.2025.3582273,2025,ACCESS,Autoencoder-Driven Fiducial Landmark Identification in 3D Brain MRI for Neuroimaging Alignment,0,
+neuromorphic,10.1109/tcsi.2018.2882818,2019,TCAS-I,Waypoint Path Planning With Synaptic-Dependent Spike Latency,1,synaptic spike latency
+neuromorphic,10.1109/tnnls.2022.3155174,2023,TNNLS,Prototype-Based Interpretation of the Functionality of Neurons in Winner-Take-All Neural Networks,0,
+neuromorphic,10.1109/tnnls.2018.2821668,2019,TNNLS,Neuro-Adaptive Control With Given Performance Specifications for Strict Feedback Systems Under Full-State Constraints,0,
+neuromorphic,10.1109/jssc.2023.3303675,2023,JSSC,An Online-Spike-Sorting IC Using Unsupervised Geometry-Aware OSort Clustering for Efficient Embedded Neural-Signal Processing,0,
+neuromorphic,10.1109/access.2017.2787738,2018,ACCESS,A Neuro-Fuzzy Visual Servoing Controller for an Articulated Manipulator,0,
+neuromorphic,10.1109/tnnls.2025.3540589,2025,TNNLS,Model-Free and Pseudoinverse-Free Zhang Neurodynamics Scheme for Robotic Arms’ Path Tracking Control,0,
+neuromorphic,10.1109/tnano.2021.3133728,2021,T-NANO,Beyond-CMOS Artificial Neuron: A Simulation- Based Exploration of the Molecular-FET,1,artificial neuron device
+neuromorphic,10.1109/access.2024.3459790,2024,ACCESS,Neuro-Inspired Spiking Classifier for Trajectory-Optimized Diastasis Recti Rehabilitation With Wearable IMU Sensor,1,spiking classifier
+neuromorphic,10.1109/access.2023.3260982,2023,ACCESS,Multiple Sclerosis Disease Evolution Assessment in Brain MRI Lesions Based on Texture and Multi-Scale Amplitude Modulation-Frequency Modulation (AM-FM) Features,0,
+iot_security,10.1109/access.2025.3547953,2025,ACCESS,Blockchain-Based Secured Data Sharing in Healthcare: A Systematic Literature Review,0,
+iot_security,10.1109/access.2020.3032759,2020,ACCESS,Intelligent Reflect Surface Aided Secure Transmission in MIMO Channel With SWIPT,0,
+iot_security,10.1109/jiot.2025.3544368,2025,IoT-J,Mobility-Aware Cooperative Caching in IoVs Based on Secure Asynchronous Federated and Deep Reinforcement Learning,0,
+iot_security,10.1109/jiot.2025.3599568,2025,IoT-J,SecureGraphFL: A Privacy-Preserving and Attack-Resilient Federated Learning Framework for Traffic Prediction,0,
+iot_security,10.1109/jiot.2025.3531852,2025,IoT-J,Transferable and Robust Dynamic Adversarial Attack Against Object Detection Models,0,
+iot_security,10.1109/access.2020.3006383,2020,ACCESS,A Graph Model Based Blockchain Implementation for Increasing Performance and Security in Decentralized Ledger Systems,0,
+iot_security,10.1109/jiot.2020.3034128,2021,IoT-J,Securing ZigBee Communications Against Constant Jamming Attack Using Neural Network,0,
+iot_security,10.1109/access.2025.3642204,2025,ACCESS,CASB Security Analytics for Encrypted SaaS Traffic: A Hybrid Transformer-Based Classification Framework in Enterprise Cloud Ecosystems,0,
+iot_security,10.1109/tvlsi.2025.3539670,2025,TVLSI,MTJ/CMOS-Based CLB Design for Low-Power and CPA-Resistant Secure Nonvolatile FPGA,1,CPA-resistant secure FPGA
+iot_security,10.1109/access.2019.2907861,2019,ACCESS,A Review of Security Aspects in Vehicular Ad-Hoc Networks,0,
+iot_security,10.1109/jiot.2023.3301771,2024,IoT-J,On the Physical Layer Security of Automotive Dual-Function Radar-Communication Systems,0,
+iot_security,10.1109/tnnls.2022.3175917,2024,TNNLS,Resilient Optimal Defensive Strategy of Micro-Grids System via Distributed Deep Reinforcement Learning Approach Against FDI Attack,0,
+iot_security,10.1109/jiot.2020.3026023,2021,IoT-J,A Quantitative Study of DDoS and E-DDoS Attacks on WiFi Smart Home Devices,0,
+iot_security,10.1109/jiot.2025.3585124,2025,IoT-J,Decoding Order and Power Control for Securing Priority Users in Cooperative NOMA-Enabled Industrial IoT Networks,0,
+iot_security,10.1109/jiot.2025.3529845,2025,IoT-J,Fixed-Time Secure Control for Vehicular Platoons Under Deception Attacks on Both Sensor and Actuator via Adaptive Fixed-Time Disturbance Observer,0,
+iot_security,10.1109/jiot.2017.2749883,2017,IoT-J,A Survey of Potential Security Issues in Existing Wireless Sensor Network Protocols,0,
+iot_security,10.1109/access.2019.2902174,2019,ACCESS,A Solution for Secure Certified Electronic Mail Using Blockchain as a Secure Message Board,0,
+iot_security,10.1109/access.2023.3277218,2023,ACCESS,Analysis and Design of Secure Sampled-Data Control Subject to Denial-of-Service Attacks,0,
+iot_security,10.1109/access.2015.2480422,2015,ACCESS,A New Transient Attack on the Kish Key Distribution System,0,
+iot_security,10.1109/jiot.2025.3530095,2025,IoT-J,RobIn: Robust-Invariant-Based Physical Attack Detector for Autonomous Aerial Vehicles,0,
+iot_security,10.1109/access.2017.2773366,2018,ACCESS,An Options Approach to Cybersecurity Investment,0,
+iot_security,10.1109/access.2024.3414334,2024,ACCESS,A Lightweight Image Encryption Algorithm Based on Secure Key Generation,0,
+iot_security,10.1109/jiot.2020.3006527,2021,IoT-J,Toward Physical-Layer Security for Internet of Vehicles: Interference-Aware Modeling,0,
+iot_security,10.1109/tvlsi.2016.2548561,2016,TVLSI,A Fine-Grained Control Flow Integrity Approach Against Runtime Memory Attacks for Embedded Systems,0,
+iot_security,10.1109/tcsii.2022.3211930,2023,TCAS-II,Asynchronous Control of Markov Jump Systems Under Aperiodic DoS Attacks,0,
+iot_security,10.1109/jiot.2021.3051419,2021,IoT-J,Task Offloading for Wireless VR-Enabled Medical Treatment With Blockchain Security Using Collective Reinforcement Learning,0,
+iot_security,10.1109/jiot.2021.3064583,2021,IoT-J,Challenges and New Directions in Securing Spectrum Access Systems,0,
+iot_security,10.1109/access.2021.3124209,2021,ACCESS,Cryptographic Solution-Based Secure Elliptic Curve Cryptography Enabled Radio Frequency Identification Mutual Authentication Protocol for Internet of Vehicles,0,
+iot_security,10.1109/access.2022.3208132,2022,ACCESS,Security Analysis of Gaussian and Discrete Modulations in FSO/CV-QKD Systems Employing LLO Under Phase and Amplitude Attacks,0,
+iot_security,10.1109/jiot.2018.2882633,2019,IoT-J,A Practical and Compatible Cryptographic Solution to ADS-B Security,0,
+quantum_hw,10.1109/ted.2024.3354868,2024,TED,Quantum Conductance and Temperature Effects in Titanium Oxide-Based Memristive Devices,0,
+quantum_hw,10.1109/access.2021.3069163,2021,ACCESS,Quantum Fisher Information of a Teleported State in Heisenberg XYZ Chain With Magnetic Field and Kaplan-Shekhtman-Entin-Wohlman-Aharony Interaction,0,
+quantum_hw,10.1109/tnano.2018.2868972,2018,T-NANO,Numerical Analysis of the Transient Behavior of the Non-Equilibrium Quantum Liouville Equation,0,
+quantum_hw,10.1109/tqe.2024.3374251,2024,T-QE,Quantum Fuzzy Inference Engine for Particle Accelerator Control,0,
+quantum_hw,10.1109/access.2019.2939589,2019,ACCESS,Lifetime Enhancement of a Circulated Cooling Perovskite Quantum Dots Colloidal Solution System for Laser Illuminations,0,
+quantum_hw,10.1109/tnnls.2021.3059434,2022,TNNLS,Quantum Cryptanalysis on a Multivariate Cryptosystem Based on Clipped Hopfield Neural Network,1,quantum cryptanalysis algorithm
+quantum_hw,10.1109/ted.2019.2947335,2019,TED,Enhancing Light Efficiency and Moisture Stability of the Quantum Dots-Light-Emitting Diodes by Coating Superhydrophobic Nanosilica Particles,0,
+quantum_hw,10.1109/access.2023.3247966,2023,ACCESS,Universal Decoding of Quantum Stabilizer Codes via Classical Guesswork,1,quantum stabilizer code decoding
+quantum_hw,10.1109/tqe.2021.3057799,2021,T-QE,Quantum Engineering With Hybrid Magnonic Systems and Materials (Invited Paper),1,quantum engineering hardware
+quantum_hw,10.1109/access.2025.3555531,2025,ACCESS,Error Rate Analysis of Quantum-Annealing-Aided Multi-User Detection in Power-Domain Nonorthogonal Multiple Access,1,quantum annealing (hyphenated)
+quantum_hw,10.1109/tnano.2024.3398560,2024,T-NANO,Towards Atomic Scale Quantum Dots in Silicon: An Ultra-Efficient and Robust Subtractor Using Proposed P-Shaped Pattern,0,
+quantum_hw,10.1109/tqe.2025.3596392,2025,T-QE,Automated Charge Transition Detection in Quantum Dot Charge Stability Diagrams,1,quantum-dot qubit tuning
+quantum_hw,10.1109/ted.2021.3090750,2021,TED,Exploiting High-Density Earth-Abundant Kesterite Quantum Wells for Next-Generation PV Technology,0,
+quantum_hw,10.1109/tqe.2025.3530939,2025,T-QE,Advance Sharing Procedures for the Ramp Quantum Secret Sharing Schemes With the Highest Coding Rate,0,
+quantum_hw,10.1109/jiot.2025.3537614,2025,IoT-J,DAQFL: Dynamic Aggregation Quantum Federated Learning Algorithm for Intelligent Diagnosis in Internet of Medical Things,1,quantum federated learning
+quantum_hw,10.1109/access.2024.3360412,2024,ACCESS,A Framework for Migrating to Post-Quantum Cryptography: Security Dependency Analysis and Case Studies,0,
+quantum_hw,10.1109/access.2025.3638714,2025,ACCESS,"Message Group Optimization in Kyber-512 Post-Quantum Cryptography: Comparing Proposed Static Encoding With Huffman Code, Base-64, and ASCII Methods",0,
+quantum_hw,10.1109/tcsii.2018.2878717,2019,TCAS-II,New Majority Gate-Based Parallel BCD Adder Designs for Quantum-Dot Cellular Automata,0,
+quantum_hw,10.1109/tqe.2021.3055466,2020,T-QE,2020 Index IEEE Transactions on Quantum Engineering Vol. 1,0,
+quantum_hw,10.1109/access.2023.3326326,2023,ACCESS,QuDASH: Quantum-Inspired Rate Adaptation Approach for DASH Video Streaming,0,
+quantum_hw,10.1109/led.2023.3262520,2023,EDL,Hybrid MoS 2 /PbS Quantum Dots Toward In-Sensor Reservoir Computing,0,
+quantum_hw,10.1109/tvlsi.2025.3543352,2025,TVLSI,RVSLH: Acceleration of Postquantum Standard SLH-DSA With Customized RISC-V Processor,0,
+quantum_hw,10.1109/tnano.2024.3354460,2024,T-NANO,Ab-Initio Investigations into Frenkel Defects in Hexagonal Boron Nitride for Quantum Optoelectronic Applications,0,
+quantum_hw,10.1109/access.2019.2931073,2019,ACCESS,A Novel Quantum Visual Secret Sharing Scheme,0,
+quantum_hw,10.1109/ted.2016.2542522,2016,TED,A Nonparabolic Bandstructure Model for Computationally Efficient Quantum Transport Simulations,0,
+quantum_hw,10.1109/access.2018.2791976,2018,ACCESS,A Modified Quantum Bacterial Foraging Algorithm for Parameters Identification of Fractional-Order System,0,
+quantum_hw,10.1109/access.2015.2432015,2015,ACCESS,Noncoherent Quantum Multiple Symbol Differential Detection for Wireless Systems,1,quantum search based detection
+quantum_hw,10.1109/tqe.2020.3028172,2020,T-QE,Entanglement Distribution in a Quantum Network: A Multicommodity Flow-Based Approach,0,
+quantum_hw,10.1109/jiot.2024.3418959,2024,IoT-J,Edge-Computing-Based Scheme for Post-Quantum IoT Security for e-Health,0,
+quantum_hw,10.1109/access.2022.3212899,2022,ACCESS,Quantum Image Encryption Using a Self-Adaptive Hash Function-Controlled Chaotic Map (SAHF-CCM),0,
