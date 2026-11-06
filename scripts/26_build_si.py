@@ -46,7 +46,7 @@ def longtable(cols, head, rows, caption, label):
 
 
 def main():
-    kw = json.loads((ROOT / "data" / "ieee_xplore_keywords.json").read_text())["_meta"]["ieee_journals_issn_pool"]
+    kw = json.loads((ROOT.parent / "data" / "ieee_xplore_keywords.json").read_text())["_meta"]["ieee_journals_issn_pool"]
     defs = json.loads((D / "wave_definitions_v2.json").read_text())
     pool = Counter()
     for r in csv.DictReader(open(D / "pool_yearly.csv")):
@@ -77,8 +77,9 @@ def main():
     for f, kind, col in (("validation_precision.csv", "P", "relevant(1/0)"), ("validation_nearmiss.csv", "N", "should_match(1/0)")):
         for r in csv.DictReader(open(D / f)):
             rows.append([kind, esc(WL[r["wave"]]), esc(r["title"][:95]), r[col], esc(r["note"][:60])])
+    T.append(r"\addtocounter{table}{-1}")  # coded records continue Table S3 (keeps S4-S10 aligned with the manuscript)
     T.append(longtable("@{}llL{8.6cm}lL{4.2cm}@{}", ["S.", "Wave", "Title", "Code", "Note"], rows,
-                       "Round-3 coded records (S.: P = precision sample, code 1 = relevant; N = near-miss sample, code 1 = should have matched).", "tab:S3b"))
+                       "(continued) Round-3 coded records (S.: P = precision sample, code 1 = relevant; N = near-miss sample, code 1 = should have matched).", "tab:S3b"))
     # S4/S5
     aud = list(csv.DictReader(open(D / "catalog_v2" / "coverage_audit.csv")))
     T.append(longtable("@{}llL{11.3cm}@{}", ["Programme", "Region", "Source"],
