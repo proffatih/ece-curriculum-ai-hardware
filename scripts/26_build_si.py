@@ -46,7 +46,7 @@ def longtable(cols, head, rows, caption, label):
 
 
 def main():
-    kw = json.loads((ROOT.parent / "data" / "ieee_xplore_keywords.json").read_text())["_meta"]["ieee_journals_issn_pool"]
+    kw = json.loads((ROOT / "data" / "ieee_xplore_keywords.json").read_text())["_meta"]["ieee_journals_issn_pool"]
     defs = json.loads((D / "wave_definitions_v2.json").read_text())
     pool = Counter()
     for r in csv.DictReader(open(D / "pool_yearly.csv")):
